@@ -1,0 +1,50 @@
+body {
+	background-color: #f0f0f0;;
+	margin: auto;
+
+}
+
+#header{
+  background: #FF6347;
+  border: 2px solid #000000;
+  overflow: hidden;
+}
+
+.menu{
+  float: left;
+}
+.menu li{
+  display: inline-block;
+  padding:5px 0;
+  text-align:center;
+  border-width:2px;
+  width: 200px;
+  border-color:#FFFFFF;
+ }
+ 
+.menu li a{
+  color: #FFFFFF;
+  border-style:dashed;
+  text-decoration: none;
+  padding: 5px 7px 5px 7px;
+  font-size: 22px;
+}
+
+#usuario {
+  float: right;
+}
+ 
+#usuario img{
+  float: right;
+  margin: 10px;
+}
+
+#usuario p{
+  margin-top: 25px;
+  float: left;
+  font-size: 16px;
+  text-align: justify;
+  font-size: 16px;
+  color: #FFA07A;
+}
+

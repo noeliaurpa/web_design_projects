@@ -1,0 +1,90 @@
+body {
+  background-color: #f0f0f0;;
+  margin: auto;
+
+}
+
+p {
+  width: 506px;
+  margin: 4% auto;
+  text-transform: uppercase;
+  font-size: xx-large;
+  color: #FF6347;
+}
+
+*{margin:0;padding:0;}
+
+#inicio{
+  width:400px;
+  margin:0 auto; /* para que el margen del cuadrito quede en el centro chiquitito y no en toda la pantalla*/
+  margin-top:8px;/* para que se separe un poco de las demas cosas que hay en la parte de arriba*/
+  border-radius: 13px 13px 13px 13px;
+  -moz-border-radius: 13px 13px 13px 13px;
+  -webkit-border-radius: 13px 13px 13px 13px;
+  border: 3px solid #FF6347;
+}
+
+
+#inicio h1{
+  background:#FF6347; /* para ponerle color al fondo*/
+  padding:20px 0; /* para cambiarle el grosor a el fonde de la letra*/
+  font-size:140%;/* para ponerle tamaño al fondo donde esta la letra*/
+  font-weight:300; /* para cambiarle el grosor a la letra*/
+  text-align:center; /* para centrar la letra*/
+  color:#fff; /* para ponerle color a la letra*/
+  border-radius: 5px 5px 0px 0px;/* para redondear un poco el fondo donde va la letra*/
+  -moz-border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  border: 0px ridge #000000;
+}
+
+#encabezado{
+
+  margin-top:8px;/* para que se seapre un poco de las demas cosas que hay en la parte de arriba*/
+  background-color: #DCDCDC;
+  font-weight:300;
+}
+
+#encabezado h2{
+  padding:10px 0;
+  font-weight: 300;
+  text-align:center;
+}
+form{ 
+  background:#FFE4E1; /* Para el fondo que tiene el cuadro de atras de los textos*/
+  padding:6% 4%; /* Para un tamaño predeterminado en el mismo fondo*/
+  border-radius: 0px 0px 11px 11px;
+  -moz-border-radius: 0px 0px 11px 11px;
+  -webkit-border-radius: 0px 0px 11px 11px;
+  border: 0px ridge #000000;
+  overflow: hidden;
+}
+
+input[type="user"],input[type="password"]{
+  width:92%;
+  background:#FFE4E1; /* Para ponerle color de fondo a los textos del login*/
+  margin-bottom:4%; /* Para que haya un espacio entre los cuadros donde se escriba el nombre de usuario y la contraseña*/
+  border:1px solid #ccc; /* Para ponerle un pequeño marco a todo el fondo del cuadro de login*/
+  padding:4%; /* para que el cuadro de texto se haga un poco mas ancho y no al tamaño de las letras*/
+  font-size:95%;
+  color:#555; /* Para que las letras User y password salgan de color gris claro para q el usuario sepa que colocar en el texto*/
+  border: 2px solid #FF6347;
+}
+
+a{
+  width:40%;
+  background:#FFA07A;
+  border:0;
+  padding:4%;
+  font-size:100%;
+  color:#fff;
+
+}
+a:hover{
+  background:#FF6347;
+}
+
+#btn_login{
+  float: left;
+  text-decoration: none; /* es para quitarle la raya de un enlace*/
+}
