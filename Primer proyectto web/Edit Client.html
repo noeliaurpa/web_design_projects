@@ -27,36 +27,24 @@
 					<div class = "minicontenedor">
 
 						<div id= "descripcion">
-							<h2> CLIENTS </h2>
+							<h2> EDIT CLIENT </h2>
 							<IMG src="group_person.png" whidth="50" height="50">
 						</div>
-
 						<a id= "boton" href="New Clients.html" title = "New Client"> New Client</a>
-					</div>
 
-					<table>
-					  <tr id = "barra_titulo">
-					    <th> ID </th>
-					    <th> FULL NAME </th>
-					    <th> ACTIONS </th>
-					  </tr>
-					  <tr>
-					    <td> 2-566-623 </td>
-					    <td> Yamna Luna </td>
-					    <td>
-					    	<a id = "modificado" href="Delete clients.html"><img id = "imagen_modif" src="basurero.png" title = "Delete Client"></a>
-					    	<a id = "modificado" href="Edit Client.html"><img id = "imagen_modif" src="modificar.png" title = "Edit Client"></a>
-					    </td>
-					  </tr>
-					  <tr>
-					    <td> 1-122-453 </td>
-					    <td> Bladimir Arroyo </td>
-					    <td>
-					    	<a id = "modificado" href="Delete clients.html"><img id = "imagen_modif" src="basurero.png" title = "Delete Client"></a>
-					    	<a id = "modificado" href="Edit Client.html"><img id = "imagen_modif" src="modificar.png" title = "Edit Client"></a>
-					    </td>
-					  </tr>
-					</table> 
+						<div id = "new-cliente">
+							<form id = "edit_cliente" action="Clients Administration.html" method="POST">
+								<h3> First Name </h3>
+								<input type="text" name="first_name" placeholder="Bladimir" />
+								<h3> Last Name </h3>
+								<input type="text" name="last_name" placeholder="Arroyo"/>
+								<h3> ID </h3>
+								<input type="text" name="id" placeholder="2-569-895"/>
+								<input type="submit" value="Save"/>
+								<a id = "cancelar" href="Clients Administration.html"> Cancelar </a>
+							</form>
+						</div>						
+					</div>
 				</div>
 			</body>
 	</html>

@@ -27,23 +27,25 @@
 					<div class = "minicontenedor">
 
 						<div id= "descripcion">
-							<h2> CLIENTS </h2>
+							<h2> DELETE CLIENT </h2>
 							<IMG src="group_person.png" whidth="50" height="50">
 						</div>
-						<a id= "boton" href="New Clients.html" title = "New Client"> New Client</a>
-
-						<div id = "new-cliente">
-							<form id = "new_cliente" action="creacion nuevo cliente.html" method="POST">
-								<h3> First Name </h3>
-								<input type="text" name="first_name" placeholder="first name" />
-								<h3> Last Name </h3>
-								<input type="text" name="last_name" placeholder="last name"/>
-								<h3> ID </h3>
-								<input type="text" name="id" placeholder="id"/>
-								<input type="submit" value="Save"/>
-								<a id = "cancelar" href="Clients Administration.html"> Cancelar </a>
-							</form>
-						</div>						
+						<a id= "boton" href="New Clients.html" title = "New Client"> New Client</a>					
+					</div>
+					<div class = "minicontenedor">
+						<h4> Are you sure you want to delete the client with name "Noelia Urpi" ? </h4>
+						<div class="opcion">
+							<ul>
+								<li><a id= "si" href="Clients Administration.html" value="YES"> YES </a>
+								<li><a id= "no" href="creacion nuevo cliente.html" value="NO"> NO </a>
+							</ul>
+						</div>
+						<!--<form id = "delete_cliente" action="Clients Administration.html" method="POST">
+							<ul>
+								<li><input id= "si" type="submit" value="YES"></li>
+								<li><input id= "no" type="submit" value="NO"></li>
+							</ul>
+						</form>-->
 					</div>
 				</div>
 			</body>

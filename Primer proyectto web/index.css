@@ -70,7 +70,11 @@ form{
   border: 0px ridge #000000;
   overflow: hidden;
 }
-
+/*
+form {
+  float: left;
+  width: 60%;
+}*/
 input[type="user"],input[type="password"]{
   width:92%;
   background:#FFE4E1; /* Para ponerle color de fondo a los textos del login*/
@@ -203,7 +207,7 @@ text-align: center;
 
 #descripcion{
   float: left;
-  width: 230px;
+  width: 300px;
   margin-top: 25px;
   height: 65px;
 }
@@ -278,18 +282,15 @@ input {
   color: #333;
 }
 
-form {
-  float: left;
-  width: 60%;
-}
+
 
 input[type="submit"], input[type="button"] {
   clear: both;
   margin: 13px -24px 0px 0px;
   border: 0px none;
   background: #66FF8E;
+  cursor: pointer;
 }
-
 #cancelar{
   float: left;
   color: #E01744;
@@ -298,3 +299,70 @@ input[type="submit"], input[type="button"] {
   width: auto;
   margin: 10px 0px 0px 0px;
 }
+
+ h4{
+  clear: both;
+  text-align: center;
+  margin: 110px 250px 0px 240px;
+  padding: 106px;
+}
+
+#edit_cliente{
+  margin: 10px 0px 0px 87px;
+  clear: both;
+  background: #F0F0F0 none repeat scroll 0% 0%;
+  padding: 36px;
+  border-radius: 0px 0px 11px 11px;
+  border: 0px ridge #000;
+  overflow: hidden;
+}
+
+#delete_cliente{
+  margin: 10px 0px 0px 87px;
+  text-align: left;
+  clear: both;
+  background: #F0F0F0 none repeat scroll 0% 0%;
+  padding: 43px;
+  border-radius: 0px 0px 11px 11px;
+  border: 0px ridge #000;
+  overflow: hidden;
+}
+
+#delete_cliente li{
+  display: inline-block;
+  padding:5px 59px;
+  text-align:center;
+  border-width:2px;
+  width: 200px;
+  border-color:#FFFFFF;
+ }
+.opcion{
+  float: left;
+
+}
+.opcion ul{
+  margin-top: 13px;
+}
+.opcion li{
+  display: inline-block;
+  text-align:center;
+  border-width:2px;
+  width: 200px;
+  border-color:#FFFFFF;
+  margin: 44px -116px 0px 271px;
+ }
+ 
+.opcion li a{
+  color: #FFFFFF;
+  border-radius: 11px 11px 11px 11px;
+  text-decoration: none;
+  padding: 5px 7px 5px 7px;
+  font-size: 22px;
+}
+ #si{
+  background: #66FF8E;
+ }
+
+ #no{
+  background: #E01744;
+ }
