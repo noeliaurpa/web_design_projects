@@ -4,12 +4,23 @@ body {
 
 }
 
+.contenedor_general{
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 p {
   width: 506px;
   margin: 4% auto;
-  text-transform: uppercase;
   font-size: xx-large;
-  color: #FF6347;
+  color: #E37A2D;
+  text-align: center;
+}
+
+.imagenes p{
+  width: 340px;
+  text-align:center;
 }
 
 *{margin:0;padding:0;}
@@ -21,12 +32,12 @@ p {
   border-radius: 13px 13px 13px 13px;
   -moz-border-radius: 13px 13px 13px 13px;
   -webkit-border-radius: 13px 13px 13px 13px;
-  border: 3px solid #FF6347;
+  border: 3px solid #E37A2D;
 }
 
 
 #inicio h1{
-  background:#FF6347; /* para ponerle color al fondo*/
+  background:#E37A2D; /* para ponerle color al fondo*/
   padding:20px 0; /* para cambiarle el grosor a el fonde de la letra*/
   font-size:140%;/* para ponerle tamaño al fondo donde esta la letra*/
   font-weight:300; /* para cambiarle el grosor a la letra*/
@@ -68,12 +79,12 @@ input[type="user"],input[type="password"]{
   padding:4%; /* para que el cuadro de texto se haga un poco mas ancho y no al tamaño de las letras*/
   font-size:95%;
   color:#555; /* Para que las letras User y password salgan de color gris claro para q el usuario sepa que colocar en el texto*/
-  border: 2px solid #FF6347;
+  border: 2px solid #E37A2D;
 }
 
 a{
   width:40%;
-  background:#FFA07A;
+  background:#E37A2D;
   border:0;
   padding:4%;
   font-size:100%;
@@ -81,19 +92,19 @@ a{
 }
 a:hover{
   background: #fff;
-  color: #FF6347;
+  color: #E37A2D;
 }
 
 
 #btn_login{
   float: left;
   text-decoration: none; /* es para quitarle la raya de un enlace*/
-  background: #FF6347;
+  background: #E37A2D;
 }
 
 
 #btn_login:hover{
-  color: #FF6347;
+  color: #E37A2D;
   background: #FFE4E2;
 }
 
@@ -104,17 +115,44 @@ text-align: center;
 }
 
 #header{
-  background: #FF6347;
+  height: 68px;
+  background: #E37A2D;
   border: 2px solid #000000;
   overflow: hidden;
 }
 
+#contenedor{
+  width: 1000px;
+  float: left;
+  padding: 0px;
+  margin: 65px 0px 0px 52px;
+}
+#cuentas{
+  background: white;
+  color: #E37A2D;
+  border: 1px dashed #E37A2D;
+}
+
+#link_imagenes{
+  background: #F0F0F0;
+  text-decoration: none;
+}
+.imagenes{
+  width: 33.33%;
+  float: left;
+  text-align: center;
+}
+
+.imagenes img{
+  width: 60%;
+  margin: 0 auto;
+}
 .menu{
   float: left;
 
 }
 .menu ul{
-  margin-top: 25px;
+  margin-top: 13px;
 }
 .menu li{
   display: inline-block;
@@ -134,13 +172,13 @@ text-align: center;
 }
 
 .menu li a:hover{
-  color: #FF6347;
-  border: 1px dashed #FF6347;
+  color: #E37A2D;
+  border: 1px dashed #E37A2D;
 }
 #usuario {
   float: right;
   width: 220px;
-  margin-top: 25px;
+  margin-top: 13px;
   height: 65px;
 }
  
@@ -157,4 +195,106 @@ text-align: center;
   font-size: 16px;
   color: #FFA07A;
 }
+.minicontenedor{
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
+#descripcion{
+  float: left;
+  width: 230px;
+  margin-top: 25px;
+  height: 65px;
+}
+
+ #descripcion h2 {
+  margin: 5px;
+  text-decoration: none;
+  float: right;
+  text-align: center;
+}
+
+ #descripcion img {
+  float: left;
+  margin: -5px 0px 0px 43px;
+}
+
+#boton, input[type="submit"], input[type="button"]{
+  float: right;
+  text-decoration: none;
+  background: #E7BC29;
+  border-radius: 6px;
+  width: 74px;
+  height: 0px;
+  font-size: 13px;
+  padding: 13px 20px 26px 26px;
+  margin: 24px 114px 0px -15px;
+}
+
+table {
+  background: white;
+  clear:both;
+  height: 166px;
+  width: 100%;
+  max-width: 1100px;
+  text-align: center;
+  border-collapse:collapse; /*esto es para quitarle los bordes que la table trae por defecto*/
+}
+
+table td, table tr {
+ padding: 10px;
+ font-size: 16px;
+}
+
+#barra_titulo {
+  background: #333;
+  color: #fff;
+}
+
+#imagen_modif{
+  width: 20px;
+  height: 20px;
+}
+
+#modificado{
+  background: white;
+}
+
+#new_cliente{
+  margin: 10px 0px 0px 87px;
+  text-align: left;
+  clear: both;
+  background: #F0F0F0 none repeat scroll 0% 0%;
+  padding: 43px;
+  border-radius: 0px 0px 11px 11px;
+  border: 0px ridge #000;
+  overflow: hidden;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  color: #333;
+}
+
+form {
+  float: left;
+  width: 60%;
+}
+
+input[type="submit"], input[type="button"] {
+  clear: both;
+  margin: 13px -24px 0px 0px;
+  border: 0px none;
+  background: #66FF8E;
+}
+
+#cancelar{
+  float: left;
+  color: #E01744;
+  background: #F0F0F0;
+  padding: 10px;
+  width: auto;
+  margin: 10px 0px 0px 0px;
+}
