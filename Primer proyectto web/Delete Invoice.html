@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<link rel="Stylesheet" href="../Primer proyectto web/index.css" type="text/css">
+			<title>Login del usuario</title>
+
+		</head>
+			<body>
+				<header id="header">
+					<div class = "contenedor_general">
+						<nav class="menu">
+							<ul>
+								<li><a href="Clients Administration.html"> CLIENTS </a></li>
+								<li><a href="Chambas Administration.html"> CHAMBAS </a></li>
+								<li><a id="cuentas" href="Invoices Administration.html"> INVOICES </a></li>
+							</ul>
+						</nav>
+						<div id="usuario">
+							<a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a>
+							<IMG src="login.png" whidth="50" height="50">
+						</div>
+					</div>
+				</header>
+				<div class = "contenedor_general">
+
+					<div class = "minicontenedor">
+
+						<div id= "descripcion">
+							<h2> DELETE INVOICES </h2>
+							<IMG src="invoices_2.png" whidth="50" height="50">
+						</div>
+						<a id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>				
+					</div>
+					<div class = "minicontenedor">
+						<h4> Are you sure you want to delete the invoice with client "Noelia Urpi" ? </h4>
+						<div class="opcion">
+							<ul>
+								<li><a id= "si" href="Invoices Administration.html" value="YES"> YES </a>
+								<li><a id= "no" href="creacion nueva factura.html" value="NO"> NO </a>
+							</ul>
+						</div>
+						<!--<form id = "delete_cliente" action="Clients Administration.html" method="POST">
+							<ul>
+								<li><input id= "si" type="submit" value="YES"></li>
+								<li><input id= "no" type="submit" value="NO"></li>
+							</ul>
+						</form>-->
+					</div>
+				</div>
+			</body>
+	</html>

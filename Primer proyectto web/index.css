@@ -232,7 +232,7 @@ text-align: center;
   width: 74px;
   height: 0px;
   font-size: 13px;
-  padding: 13px 20px 26px 26px;
+  padding: 13px 20px 30px 26px;
   margin: 24px 114px 0px -15px;
 }
 
@@ -366,3 +366,16 @@ input[type="submit"], input[type="button"] {
  #no{
   background: #E01744;
  }
+#new_invoices{
+  margin: 10px 0px 0px 87px;
+  text-align: left;
+  clear: both;
+  background: #F0F0F0 none repeat scroll 0% 0%;
+  padding: 43px;
+  border-radius: 0px 0px 11px 11px;
+  border: 0px ridge #000;
+  overflow: hidden;
+}
+datalist {
+    display: none;
+} 

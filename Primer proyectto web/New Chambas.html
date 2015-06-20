@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8" />
+			<link rel="Stylesheet" href="../Primer proyectto web/index.css" type="text/css">
+			<title>Login del usuario</title>
+
+		</head>
+			<body>
+				<header id="header">
+					<div class = "contenedor_general">
+					<nav class="menu">
+						<ul>
+							<li><a href="Clients Administration.html"> CLIENTS </a></li>
+							<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+							<li><a href="Invoices Administration.html"> INVOICES </a></li>
+						</ul>
+					</nav>
+					<div id="usuario">
+						<a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a>
+						<IMG src="login.png" whidth="50" height="50">
+					</div>
+				</div>
+				</header>
+				<div class = "contenedor_general">
+
+					<div class = "minicontenedor">
+
+						<div id= "descripcion">
+							<h2> CHAMBAS </h2>
+							<IMG src="chambas.png" whidth="50" height="50">
+						</div>
+
+						<a id= "boton" href="New Chambas.html" title = "New chamba"> New chamba</a>
+					</div>
+					<div >
+						<form id = "new_invoices" action="creacion nuevo trabajo.html" method="POST">
+							<h3> Cliente </h3>
+							 <input type="text" list="invoicess" placeholder="Choose the client, with double click">
+								<datalist id="invoicess">
+								  <option value="Yamna Luna">
+								  <option value="Bladimir Arroyo">
+								  <option value="Noelia Urpi">
+								</datalist> 
+							<h3> Descripcion del trabajo </h3>
+							<input type="textarea" name="Trabajo" placeholder="Description the work"/>
+							<h3> Fecha </h3>
+							<input type="text" name="fecha" placeholder="Date - example = 01/01/2000"/>
+							<h3> Notas </h3>
+							<input type="notes" placeholder="Notes"/>
+							<input type="submit" value="Save"/>
+							<a id = "cancelar" href="Chambas Administration.html"> Cancelar </a>
+						</form>
+					</div>	
+				</div>
+			</body>
+	</html>
