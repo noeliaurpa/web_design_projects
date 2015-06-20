@@ -104,6 +104,7 @@ a:hover{
   float: left;
   text-decoration: none; /* es para quitarle la raya de un enlace*/
   background: #E37A2D;
+  border-radius: 16px 16px 16px 16px;
 }
 
 
@@ -116,6 +117,7 @@ a:hover{
 text-decoration: none;
 float: left;
 text-align: center;
+border-radius: 42px 42px 42px 42px;
 }
 
 #header{
@@ -181,16 +183,23 @@ text-align: center;
 }
 #usuario {
   float: right;
-  width: 220px;
-  margin-top: 13px;
-  height: 65px;
+  width: 200px;
+  margin-top: 16px;
+  height: 57px;
 }
  
 #usuario img{
   float: right;
-  margin: -5px 40px 0px 10px;
+  margin: -6px 38px 0px 2px;
+}
+#usuario a{
+  background: #E38744;
 }
 
+#usuario a:hover{
+  background: #fff;
+  color: #E37A2D;
+}
 #usuario p{
   margin-top: 25px;
   float: left;
