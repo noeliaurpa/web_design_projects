@@ -388,3 +388,8 @@ input[type="submit"], input[type="button"] {
 datalist {
     display: none;
 } 
+textarea{
+  width: 102%;
+  font-family: Arial,Helvetica,sans-serif;
+    padding-top: 10px;
+}
