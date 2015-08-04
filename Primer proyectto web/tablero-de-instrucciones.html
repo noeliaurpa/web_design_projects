@@ -1,43 +1,88 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="utf-8" />
-			<link rel="Stylesheet" href="../Primer proyectto web/index.css" type="text/css">
-			<title>Login del usuario</title>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="Stylesheet" href="../Primer proyectto web/css/foundation.css" type="text/css">
+	<!--<link rel="Stylesheet" href="../Primer proyectto web/css/index.css" type="text/css">-->
+	<title>Login del usuario</title>
 
-		</head>
-			<body>
-				<header id="header">
-					<div class = "contenedor_general">
-					<nav class="menu">
-						<ul>
-							<li><a href="Clients Administration.html"> CLIENTS </a></li>
-							<li><a href="Chambas Administration.html"> CHAMBAS </a></li>
-							<li><a href="Invoices Administration.html"> INVOICES </a></li>
-						</ul>
-					</nav>
-					<div id="usuario">
-						<a id="volver_login" href="Login.html" title = "Back to login"> Hi User </a>
-						<IMG src="user.png" whidth="50" height="50">
+</head>
+<body>
+	<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">My Site</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+  </section>
+</nav>
+	<header id="header">
+
+		<div class = "row">
+			<div class="large-8 columns">
+				<nav class="menu">
+					<ul>
+						<li><a href="Clients Administration.html"> CLIENTS </a></li>
+						<li><a href="Chambas Administration.html"> CHAMBAS </a></li>
+						<li><a href="Invoices Administration.html"> INVOICES </a></li>
+					</ul>	
+				</nav>
+			</div>
+			<div class="large-4 columns">
+				<div id="usuario">
+					<a id="volver_login" href="Login.html" title = "Back to login"> Hi User </a>
+					<IMG src="imagenes/user.png" whidth="50" height="50">
 					</div>
 				</div>
-				</header>
-				<div class = "contenedor_general">
-					<p>WELCOME User</p>
-					<div id="contenedor">
-						<div class="imagenes">
-							<a id= "link_imagenes" href="Clients Administration.html"><IMG src="group_person.png"></a>
-							<p>My Clients</p>
-						</div>
-						<div class="imagenes">
-							<a id= "link_imagenes" href="Chambas Administration.html"><IMG src="chambas.png"></a>
-							<p>Chambas</p>
-						</div>
-						<div class="imagenes">
-							<a id= "link_imagenes" href="Invoices Administration.html"><IMG src="invoices.png"></a>
-							<p>Invoices</p>
-						</div>
-					</div>
+			</div>
+		</div>
+	</header>
+	<div class="row">
+		<div class="large-12 columns">
+			<p>WELCOME User</p>
+		</div>
+		<div class = "row">
+			<div class="large-4 medium-4 columns">
+				<div class="imagenes">
+
+					<a id= "link_imagenes" href="Clients Administration.html"><IMG src="imagenes/group_person.png"></a>
+					<p>My Clients</p>
 				</div>
-			</body>
+			</div>
+			<div class="large-4 medium-4 columns">
+				<div class="imagenes">
+
+					<a id= "link_imagenes" href="Chambas Administration.html"><IMG src="imagenes/chambas.png"></a>
+					<p>Chambas</p>
+				</div>
+			</div>
+			<div class="large-4 medium-4 columns">
+				<div class="imagenes">
+
+					<a id= "link_imagenes" href="Invoices Administration.html"><IMG src="imagenes/invoices.png"></a>
+					<p>Invoices</p>
+				</div>
+			</div>
+		</div>
+	</body>
 	</html>

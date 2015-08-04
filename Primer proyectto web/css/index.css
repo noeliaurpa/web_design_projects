@@ -4,14 +4,13 @@ body {
 
 }
 
-.contenedor_general{
-  width: 100%;
-  max-width: 80%;
-  margin: 0 auto;
-}
+/*.contenedor_general{
+/*  width: 100%;
+/*  max-width: 80%;
+/*  margin: 0 auto;
+/*}*/
 
 p {
-  width: 506px;
   margin: 4% auto;
   font-size: xx-large;
   color: #E37A2D;
@@ -47,6 +46,7 @@ p {
   -moz-border-radius: 5px 5px 0px 0px;
   -webkit-border-radius: 5px 5px 0px 0px;
   border: 0px ridge #000000;
+  margin: auto;
 }
 
 #encabezado{
@@ -70,11 +70,6 @@ form{
   border: 0px ridge #000000;
   overflow: hidden;
 }
-/*
-form {
-  float: left;
-  width: 60%;
-}*/
 input[type="user"],input[type="password"]{
   width:92%;
   background:#FFE4E1; /* Para ponerle color de fondo a los textos del login*/
@@ -84,6 +79,7 @@ input[type="user"],input[type="password"]{
   font-size:95%;
   color:#555; /* Para que las letras User y password salgan de color gris claro para q el usuario sepa que colocar en el texto*/
   border: 2px solid #E37A2D;
+  height: auto;
 }
 
 a{
@@ -99,25 +95,32 @@ a:hover{
   color: #E37A2D;
 }
 
-
-#btn_login{
+.boton{
+  border-radius: 6px;
+  height: 0px;
+  font-size: 13px;
+  padding: 13px 20px 30px 26px;
+  width: 145px;
   float: left;
   text-decoration: none; /* es para quitarle la raya de un enlace*/
   background: #E37A2D;
-  border-radius: 16px 16px 16px 16px;
+  clear: both;
+  margin: 13px -24px 0px 0px;
+  border: 0px none;
+  cursor: pointer;
+
 }
 
-
-#btn_login:hover{
+.boton:hover{
   color: #E37A2D;
   background: #FFE4E2;
 }
 
 #volver_login{
-text-decoration: none;
-float: left;
-text-align: center;
-border-radius: 42px 42px 42px 42px;
+  text-decoration: none;
+  float: left;
+  text-align: center;
+  border-radius: 42px 42px 42px 42px;
 }
 
 #header{
@@ -167,8 +170,8 @@ border-radius: 42px 42px 42px 42px;
   border-width:2px;
   width: 200px;
   border-color:#FFFFFF;
- }
- 
+}
+
 .menu li a{
   color: #FFFFFF;
   border: 1px dashed #fff;
@@ -187,7 +190,7 @@ border-radius: 42px 42px 42px 42px;
   margin-top: 16px;
   height: 57px;
 }
- 
+
 #usuario img{
   float: right;
   margin: -6px 38px 0px 2px;
@@ -221,28 +224,16 @@ border-radius: 42px 42px 42px 42px;
   height: 65px;
 }
 
- #descripcion h2 {
+#descripcion h2 {
   margin: 5px;
   text-decoration: none;
   float: right;
   text-align: center;
 }
 
- #descripcion img {
+#descripcion img {
   float: left;
   margin: -5px 0px 0px 43px;
-}
-
-#boton, input[type="submit"], input[type="button"]{
-  float: right;
-  text-decoration: none;
-  background: #E7BC29;
-  border-radius: 6px;
-  width: 74px;
-  height: 0px;
-  font-size: 13px;
-  padding: 13px 20px 30px 26px;
-  margin: 24px 114px 0px -15px;
 }
 
 table {
@@ -291,15 +282,6 @@ input {
   color: #333;
 }
 
-
-
-input[type="submit"], input[type="button"] {
-  clear: both;
-  margin: 13px -24px 0px 0px;
-  border: 0px none;
-  background: #66FF8E;
-  cursor: pointer;
-}
 #cancelar{
   float: left;
   color: #E01744;
@@ -309,7 +291,7 @@ input[type="submit"], input[type="button"] {
   margin: 10px 0px 0px 0px;
 }
 
- h4{
+h4{
   clear: both;
   text-align: center;
   margin: 110px 250px 0px 240px;
@@ -344,7 +326,7 @@ input[type="submit"], input[type="button"] {
   border-width:2px;
   width: 200px;
   border-color:#FFFFFF;
- }
+}
 .opcion{
   float: left;
 
@@ -359,8 +341,8 @@ input[type="submit"], input[type="button"] {
   width: 200px;
   border-color:#FFFFFF;
   margin: 44px -116px 0px 271px;
- }
- 
+}
+
 .opcion li a{
   color: #FFFFFF;
   border-radius: 11px 11px 11px 11px;
@@ -368,13 +350,13 @@ input[type="submit"], input[type="button"] {
   padding: 5px 7px 5px 7px;
   font-size: 22px;
 }
- #si{
+#si{
   background: #66FF8E;
- }
+}
 
- #no{
+#no{
   background: #E01744;
- }
+}
 #new_invoices{
   margin: 10px 0px 0px 87px;
   text-align: left;
@@ -386,10 +368,26 @@ input[type="submit"], input[type="button"] {
   overflow: hidden;
 }
 datalist {
-    display: none;
+  display: none;
 } 
 textarea{
   width: 102%;
   font-family: Arial,Helvetica,sans-serif;
-    padding-top: 10px;
+  padding-top: 10px;
+}
+#crear_usuario{
+  margin: 77px 0px 0px 0px;
+  width: 53%;
+  border-radius: 7px;
+  padding: 0% 0% 0% 1%;
+  font-size: 1rem;
+}
+
+#crear_usuario:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #E37A2D;
+}
+.dimension{
+  max-width: "2rem";
 }
