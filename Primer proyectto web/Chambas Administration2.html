@@ -22,45 +22,59 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li class="active"><a id="volver_login" href="index.html" title = "Back to login"> Hi User </a></li>
+				<li class="active"><a id="volver_login" href="tablero-de-instrucciones2.html" title = "Back to login"> Hi User </a></li>
 				<li>
 					<a href="#"><IMG class="dimension" src="imagenes/user.png" ></a>
+					<ul class="dropdown">
+						<li><a href="#">First link in dropdown</a></li>
+						<li class="active"><a href="#">Active link in dropdown</a></li>
+					</ul>
 				</li>
 			</ul>
 			<ul>
 				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
 				<li><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
 	</nav>
-	<div class="row">
-		<div class="large-12 columns">
-			<p>WELCOME User</p>
-		</div>
-		<div class = "row">
-			<div class="large-4 medium-4 columns">
-				<div class="imagenes">
 
-					<a id= "link_imagenes" href="Clients Administration.html"><IMG src="imagenes/group_person.png"></a>
-					<p>My Clients</p>
-				</div>
-			</div>
-			<div class="large-4 medium-4 columns">
-				<div class="imagenes">
 
-					<a id= "link_imagenes" href="Chambas Administration.html"><IMG src="imagenes/chambas.png"></a>
-					<p>Chambas</p>
-				</div>
-			</div>
-			<div class="large-4 medium-4 columns">
-				<div class="imagenes">
+	<div class = "row">
 
-					<a id= "link_imagenes" href="Invoices Administration.html"><IMG src="imagenes/invoices.png"></a>
-					<p>Invoices</p>
-				</div>
+		<div>
+
+			<div>
+				<h2> CHAMBAS </h2>
+				<IMG src="imagenes/chambas.png" whidth="50" height="50">
 			</div>
 		</div>
+
+			<table>
+				<thead>
+					<tr>
+						<th width="200">Client</th>
+						<th width="150">Description of work</th>
+						<th width="150">Date</th>
+						<th width="150">Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td> Yamna Luna </td>
+						<td> Hace aplicaciones programadas por medio de lineas de codigo con IDES distintos </td>
+						<td> 19/06/2015 </td>
+						<td> Es una persona muy buena y una excelente programadora </td>
+					</tr>
+					<tr>
+						<td> Bladimir Arroyo </td>
+						<td> Se encarga de todo el diseño de una pagina web </td>
+						<td> 19/06/2015 </td>
+						<td> Es una excelente persona y un super diseñador </td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
 		<script>

@@ -1,9 +1,9 @@
-var usuario = ["Admin", "123"];
+var usuario = ["admin", "$uper4dmin"];
 var User = [usuario];
 var validar = null;
 
 // Esta funcion guarda todo el contenido de los input(nombre, apellido y telefono) en el navegador
-function guardarUsuario()
+function iniciar_Sesion()
 
 {
 	validacion();
@@ -12,13 +12,13 @@ function guardarUsuario()
 	}else if(validar === "Entra como administracion"){
 		location.href="tablero-de-instrucciones.html";
 	}else if(validar === "Entra como particular"){
-		location.href="www.Google.com";
+		location.href="tablero-de-instrucciones2.html";
 	}
 }
 
 // Esta funcion muestra todo el contenido de los input(nombre, apellido y telefono) en la consola
 
-function mostrarUsuarioIndicado()
+function crear_usuario()
 {
 	validacion();
 	if(validar === null){
@@ -53,7 +53,7 @@ function validacion()
 	}else {
 		for(i = 0; i < storedNames.length; i++){
 			for (j = 0; j < storedNames[i].length; j++){
-				if(storedNames[i][j] === nombre_usuario && storedNames[i][j+1] === "123"){
+				if(storedNames[i][j] === nombre_usuario && storedNames[i][j+1] === "$uper4dmin"){
 					validar = "Entra como administracion";
 					break;
 				}else{
