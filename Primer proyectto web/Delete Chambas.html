@@ -22,7 +22,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li id= "Hi_user" class="active"><a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a></li>
+				<li  class="active"><a id= "Hi_user" href="tablero-de-instrucciones.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 					<ul class="dropdown">
@@ -38,25 +38,25 @@
 			</ul>
 		</section>
 	</nav>
-		<div class = "contenedor_general">
+	<div class = "contenedor_general">
 
-			<div class = "minicontenedor">
+		<div class = "minicontenedor">
 
-				<div id= "descripcion">
-					<h2> CHAMBAS </h2>
-					<IMG src="chambas.png" whidth="50" height="50">
-					</div>
-
-					<a id= "boton" href="New Chambas.html" title = "New chamba"> New chamba</a>			
+			<div id= "descripcion">
+				<h2> CHAMBAS </h2>
+				<IMG src="chambas.png" whidth="50" height="50">
 				</div>
-				<div class = "minicontenedor">
-					<h4> Are you sure you want to delete the invoice with client "Noelia Urpi" ? </h4>
-					<div class="opcion">
-						<ul>
-							<li><a id= "si" href="Chambas Administration.html" value="YES"> YES </a>
-								<li><a id= "no" href="creacion nuevo trabajo.html" value="NO"> NO </a>
-								</ul>
-							</div>
+
+				<a id= "boton" href="New Chambas.html" title = "New chamba"> New chamba</a>			
+			</div>
+			<div class = "minicontenedor">
+				<h4> Are you sure you want to delete the invoice with client "Noelia Urpi" ? </h4>
+				<div class="opcion">
+					<ul>
+						<li><a id= "si" href="Chambas Administration.html" value="YES"> YES </a>
+							<li><a id= "no" href="creacion nuevo trabajo.html" value="NO"> NO </a>
+							</ul>
+						</div>
 						<!--<form id = "delete_cliente" action="Clients Administration.html" method="POST">
 							<ul>
 								<li><input id= "si" type="submit" value="YES"></li>
@@ -67,6 +67,11 @@
 				</div>
 				<script src="js/vendor/jquery.js"></script>
 				<script src="js/foundation.min.js"></script>
+				<script>
+				$(document).ready(function(){
+					validarNewUser();
+				});
+				</script>
 				<script>
 				$(document).foundation();
 				</script>

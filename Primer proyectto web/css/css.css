@@ -1,5 +1,8 @@
+th{
+	background: #ff9999;
+}
 .img_test{
-	width: "2.18rem;";
+	width: "2.18rem";
 }
 
 .parrafo{
@@ -18,13 +21,22 @@ input[type="button"]{
 	margin: 0% 0% 0% 41%;
 }
 
-.nuevo{
+/*.nuevo{
 	margin: 0% 0% 0% 90%;
-}
+}*/
 input[type = "text"], {
 	margin: 0% 0% 0% 41%;
 }
 
+.top-bar-section li.active_alert:not(.has-form) a:not(.button) {
+      background: #B22222;
+      color: #FFFFFF;
+      line-height: 2.8125rem;
+      padding: 0 0.9375rem; }
+.top-bar-section li.active_alert:not(.has-form) a:not(.button):hover {
+        background: #DC143C;
+        color: #FFFFFF; }
+}
 @media only screen and (min-width: 320px) and (max-width: 568px) {
 	input{
 		display: inline-block;

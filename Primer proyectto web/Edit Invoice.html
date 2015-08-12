@@ -22,7 +22,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li id= "Hi_user" class="active"><a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a></li>
+				<li  class="active"><a id= "Hi_user" href="tablero-de-instrucciones.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 					<ul class="dropdown">
@@ -38,39 +38,44 @@
 			</ul>
 		</section>
 	</nav>
-		<div class = "contenedor_general">
+	<div class = "contenedor_general">
 
-			<div class = "minicontenedor">
+		<div class = "minicontenedor">
 
-				<div id= "descripcion">
-					<h2> EDIT INVOICES </h2>
-					<IMG src="invoices_2.png" whidth="50" height="50">
-					</div>
-					<a id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>
-					<div >
-						<form id = "new_invoices" action="creacion nueva factura.html" method="POST">
-							<h3> Cliente </h3>
-							<input type="text" list="invoicess" placeholder="Noelia Urpi">
-							<datalist id="invoicess">
-								<option value="Yamna Luna">
-									<option value="Bladimir Arroyo">
-										<option value="Noelia Urpi">
-										</datalist> 
-										<h3> Descripcion del trabajo </h3>
-										<textarea>Ingenieria en Gestion Ambiental</textarea>
-										<h3> Fecha </h3>
-										<input type="date" name="fecha" placeholder="20/06/2015"/>
-										<h3> Monto </h3>
-										<textarea>$450</textarea>
-										<input type="submit" value="Save"/>
-										<a id = "cancelar" href="creacion nueva factura.html"> Cancelar </a>
-									</form>
-								</div>
+			<div id= "descripcion">
+				<h2> EDIT INVOICES </h2>
+				<IMG src="invoices_2.png" whidth="50" height="50">
+				</div>
+				<a id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>
+				<div >
+					<form id = "new_invoices" action="creacion nueva factura.html" method="POST">
+						<h3> Cliente </h3>
+						<input type="text" list="invoicess" placeholder="Noelia Urpi">
+						<datalist id="invoicess">
+							<option value="Yamna Luna">
+								<option value="Bladimir Arroyo">
+									<option value="Noelia Urpi">
+									</datalist> 
+									<h3> Descripcion del trabajo </h3>
+									<textarea>Ingenieria en Gestion Ambiental</textarea>
+									<h3> Fecha </h3>
+									<input type="date" name="fecha" placeholder="20/06/2015"/>
+									<h3> Monto </h3>
+									<textarea>$450</textarea>
+									<input type="submit" value="Save"/>
+									<a id = "cancelar" href="creacion nueva factura.html"> Cancelar </a>
+								</form>
 							</div>
-							<script src="js/vendor/jquery.js"></script>
-							<script src="js/foundation.min.js"></script>
-							<script>
-							$(document).foundation();
-							</script>
-						</body>
-						</html>
+						</div>
+						<script src="js/vendor/jquery.js"></script>
+						<script src="js/foundation.min.js"></script>
+						<script>
+						$(document).ready(function(){
+							validarNewUser();
+						});
+						</script>
+						<script>
+						$(document).foundation();
+						</script>
+					</body>
+					</html>

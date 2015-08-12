@@ -23,7 +23,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li id= "Hi_user" class="active"><a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a></li>
+				<li  class="active"><a id= "Hi_user" href="tablero-de-instrucciones.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 					<ul class="dropdown">
@@ -34,59 +34,47 @@
 			</ul>
 			<ul>
 				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
-				<li><a href="Invoices Administration.html"> INVOICES </a></li>
+				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active" ><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
 	</nav>
-		<div class = "contenedor_general">
+	<div class = "row large-centered medium-centered">
 
-			<div class = "minicontenedor">
-
-				<div id= "descripcion">
-					<h2> INVOICES </h2>
-					<IMG src="invoices_2.png" whidth="50" height="50">
-					</div>
-
-					<a id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>
+		<div>
+			<div>
+				<h2> INVOICES </h2>
+				<IMG src="imagenes/invoices_2.png" whidth="50" height="50">
 				</div>
-				<table>
-					<tr id = "barra_titulo">
-						<th style="width: 10%;"> INVOICE # </th>
-						<th> Client </th>
-						<th> Description </th>
-						<th> Date </th>
-						<th> AMOUNT  </th>
-						<th> ACTIONS </th>
-					</tr>
-					<tr>
-						<td> 1 </td>
-						<td> Yamna Luna </td>
-						<td> Ingeniera del software </td>
-						<td> 19/06/2015 </td>
-						<td> $100 </td>
-						<td>
-							<a id = "modificado" href="Delete Invoice.html"><img id = "imagen_modif" src="basurero.png" title = "Delete Invoices"></a>
-							<a id = "modificado" href="Edit Invoice.html"><img id = "imagen_modif" src="modificar.png" title = "Edit Invoices"></a>
-						</td>
-					</tr>
-					<tr>
-						<td> 2 </td>
-						<td> Bladimir Arroyo </td>
-						<td> Diseño Grafico </td>
-						<td> 19/06/2015 </td>
-						<td> $500 </td>
-						<td>
-							<a id = "modificado" href="Delete Invoice.html"><img id = "imagen_modif" src="basurero.png" title = "Delete Invoices"></a>
-							<a id = "modificado" href="Edit Invoice.html"><img id = "imagen_modif" src="modificar.png" title = "Edit Invoices"></a>
-						</td>
-					</tr>
-				</table>
+				<a class = "nuevo" id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>
 			</div>
-			<script src="js/vendor/jquery.js"></script>
-			<script src="js/foundation.min.js"></script>
-			<script>
-			$(document).foundation();
-			</script>
-		</body>
-		</html>
+			<table id = "regtable">
+				<thead>
+					<tr>
+						<th width="200"> INVOICE # </th>
+						<th width="150"> Client </th>
+						<th width="150"> Description </th>
+						<th width="150"> Date </th>
+						<th width="150"> Amount </th>
+						<th width="150">ACTION MODIFY</th>
+						<th width="150">ACTIONS DELETE</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+		</div>
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/foundation.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			validarNewUser();
+			cargarTablaInvoices();
+		});
+		</script>
+		<script>
+		$(document).foundation();
+		</script>
+	</body>
+	</html>

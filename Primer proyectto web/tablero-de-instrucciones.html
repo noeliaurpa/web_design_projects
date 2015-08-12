@@ -22,7 +22,9 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li id= "Hi_user" class="active"><a id="volver_login" href="index.html" title = "Back to login"> Hi User </a></li>
+				<li id= "Users" ><a href="ver_usuarios.html" title = "Back to login"> USERS </a></li>
+				<li id= "New_usuario" ><a href="Crear_Usuario.html" title = "Back to login"> New User </a></li>
+				<li  class="active"><a id= "Hi_user" href="index.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 				</li>
@@ -64,6 +66,11 @@
 	</div>
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/foundation.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			validarNewUser();
+		});
+	</script>
 	<script>
 	$(document).foundation();
 	</script>

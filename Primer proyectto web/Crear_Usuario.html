@@ -21,7 +21,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li class="active"><a id="volver_login" href="index.html" title = "Back to login"> Hi User </a></li>
+				<li class="active_alert"><a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Cancelar </a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 				</li>
@@ -34,13 +34,22 @@
 			<div class="row large-centered medium-centered"></div>
 			<div id = "inicio" class = "panel"> 
 				<form >
-					<h3> Nombre del usuario </h3>
+					<h3> Nombre completo</h3>
+					<input id = "fullName" type="text" list="invoicess" placeholder="nombre de usuario ej: hola123" class="small-3 small-centered columns">
+					<h3> Username </h3>
 					<input id = "user" type="text" list="invoicess" placeholder="nombre de usuario ej: hola123" class="small-3 small-centered columns">
 					<h3> Contraseña del usuario </h3>
 					<input id = "password" type="password" name="Trabajo" placeholder="contrasenna ej: 12345" class="small-3 small-centered columns"/>
-					<input type ="button" id= "submit" value="Crear Usuario" onclick="crear_usuario()" class="button round"class="small-11 small-centered columns" href = "index.html"/>
+					<h3> Repetir contraseña</h3>
+					<input id = "password_repeat" type="password" name="Trabajo" placeholder="contrasenna ej: 12345" class="small-3 small-centered columns"/>
+					<input type ="button" id= "submit" value="Crear Usuario" onclick="crear_usuario()" class="button round"class="small-11 small-centered columns" href = "tablero-de-instrucciones.html"/>
 				</form>
-
+				<!--
+					warning = boton amarillo
+					alert = boton rojo
+					success = boton verde
+					button = azul -> este es el normal
+			-->
 			</div>
 		</div>
 	</div>

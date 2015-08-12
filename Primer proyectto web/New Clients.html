@@ -22,7 +22,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li id= "Hi_user" class="active"><a id="volver_login" href="tablero-de-instrucciones.html" title = "Back to login"> Hi User </a></li>
+				<li  class="active"><a id= "Hi_user" href="tablero-de-instrucciones.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 					<ul class="dropdown">
@@ -32,42 +32,43 @@
 				</li>
 			</ul>
 			<ul>
-				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active"><a href="Clients Administration.html"> CLIENTS </a></li>
+				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
 				<li><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
 	</nav>
-		<div class = "contenedor_general">
+	<div class = "row">
 
-			<div class = "minicontenedor">
-
-				<div id= "descripcion">
-					<h2> CLIENTS </h2>
-					<IMG src="group_person.png" whidth="50" height="50">
-					</div>
-					<a id= "boton" href="New Clients.html" title = "New Client"> New Client</a>
-
-					<div >
-						<form id = "new_cliente" action="creacion nuevo cliente.html" method="POST">
-							<h3> First Name </h3>
-							<input type="text" name="first_name" placeholder="first name" />
-							<h3> Last Name </h3>
-							<input type="text" name="last_name" placeholder="last name"/>
-							<h3> ID </h3>
-							<input type="text" name="id" placeholder="id - cedula example= 0-000-000"/>
-							<h3> Telephone number </h3>
-							<input type="tell" placeholder="telephone number - example = 8888-8888"/>
-							<input type="submit" value="Save"/>
-							<a id = "cancelar" href="Clients Administration.html"> Cancelar </a>
-						</form>
-					</div>						
+		<div>
+			<div id= "descripcion">
+				<h2> CLIENTS </h2>
+				<IMG src="imagenes/group_person.png" whidth="50" height="50">
 				</div>
+				<div class = "panel">
+					<form id = "new_cliente" action="creacion nuevo cliente.html" method="POST">
+						<h3> Full name </h3>
+						<input id = "full_name"type="text" name="first_name" placeholder="first name and Last name" class="small-3 small-centered columns"/>
+						<h3> ID </h3>
+						<input id = "id" type="text" name="id" placeholder="id - cedula example= 0-000-000" class="small-3 small-centered columns"/>
+						<h3> Telephone number </h3>
+						<input id= "tell" type="number" placeholder="telephone number - example = 8888-8888" class="small-3 small-centered columns"/>
+						<input type="button" value="Save" onclick="agregarClientes()" class="button round"/>
+						<a id = "cancelar" href="Clients Administration.html"> Cancelar </a>
+					</form>
+				</div>	
 			</div>
-			<script src="js/vendor/jquery.js"></script>
-			<script src="js/foundation.min.js"></script>
-			<script>
-			$(document).foundation();
-			</script>
-		</body>
-		</html>
+
+		</div>
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/foundation.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			validarNewUser();
+		});
+		</script>
+		<script>
+		$(document).foundation();
+		</script>
+	</body>
+	</html>

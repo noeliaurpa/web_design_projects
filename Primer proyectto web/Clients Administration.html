@@ -22,7 +22,7 @@
 		<section class="top-bar-section">
 			<!-- Right Nav Section -->
 			<ul class="right">
-				<li class="active"><a id="volver_login" href="tablero-de-instrucciones2.html" title = "Back to login"> Hi User </a></li>
+				<li  class="active"><a id= "Hi_user" href="tablero-de-instrucciones.html" title = "Back to login"></a></li>
 				<li>
 					<a href="#"><IMG class="img_test" src="imagenes/user.png" style="width: 2.18rem;" ></a>
 					<ul class="dropdown">
@@ -32,8 +32,8 @@
 				</li>
 			</ul>
 			<ul>
-				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active" ><a href="Clients Administration.html"> CLIENTS </a></li>
+				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
 				<li><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
@@ -48,39 +48,29 @@
 				<a class = "nuevo" id= "boton" href="New Clients.html" title = "New Client"> New Client</a>
 			</div>
 
-			<table>
+			<table id = "regtable">
 				<thead>
 					<tr>
 						<th width="200">ID</th>
 						<th width="150">FULL NAME</th>
 						<th width="150">TELEPHONE NUMBER</th>
-						<th width="150">ACTIONS</th>
+						<th width="150">ACTION MODIFY</th>
+						<th width="150">ACTION DELETE</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td> 2-566-623 </td>
-						<td> Yamna Luna </td>
-						<td> 8951-9080 </td>
-						<td>
-							<a id = "modificado" href="Delete clients.html"><img id = "imagen_modif" src="imagenes/basurero.png" title = "Delete Invoices"></a>
-							<a id = "modificado" href="Edit Client.html"><img id = "imagen_modif" src="imagenes/modificar.png" title = "Edit Invoices"></a>
-						</td>
-					</tr>
-					<tr>
-						<td> 1-122-453 </td>
-						<td> Bladimir Arroyo </td>
-						<td> 6078-2348 </td>
-						<td>
-							<a id = "modificado" href="Delete Chambas.html"><img id = "imagen_modif" src="imagenes/basurero.png" title = "Delete Invoices"></a>
-							<a id = "modificado" href="Edit Chambas.html"><img id = "imagen_modif" src="imagenes/modificar.png" title = "Edit Invoices"></a>
-						</td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>
 		<script src="js/vendor/jquery.js"></script>
 		<script src="js/foundation.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			validarNewUser();
+			cargarTablaClientes();
+		});
+		</script>
 		<script>
 		$(document).foundation();
 		</script>
