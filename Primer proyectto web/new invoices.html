@@ -42,24 +42,27 @@
 				<h2> INVOICES </h2>
 				<IMG src="imagenes/invoices_2.png" whidth="50" height="50">
 				</div>
+				<h4 id = "mensaje" style = "display: none;">Se guardó correctamente</h4>
 			</div>
 			<div class = "panel">
 				<form id = "new_invoices" method="POST">
+					<h3>Numero Invoice</h3>
+					<input id = "numero" type="text" name="number invoice" placeholder="Number the invoice" class="small-3 small-centered columns">
 					<h3> Cliente </h3>
 					<input id = "cliente" type="text" list="invoicess" placeholder="Choose the client, with double click" class="small-3 small-centered columns">
 					<datalist id="invoicess">
 						<option value="Yamna Luna">
-						<option value="Bladimir Arroyo">
-						<option value="Noelia Urpi">
-					</datalist> 
-					<h3> Descripcion del trabajo </h3>
-					<input id = "description" type="text" name="Trabajo" placeholder="Description the work" class="small-3 small-centered columns"/>
-					<h3> Fecha </h3>
-					<input id = "fecha" type="text" name="fecha" placeholder="Date - example = 01/01/2000" class="small-3 small-centered columns"/>
-					<h3> Monto </h3>
-					<input id = "monto" type="number" placeholder="Amount - example = $00.00" class="small-3 small-centered columns"/>
-					<input type="button" value="Save" onclick="agregarInvoices()" class="button round"/>
-					<a id = "cancelar" href="Invoices Administration.html"> Cancelar </a>
+							<option value="Bladimir Arroyo">
+								<option value="Noelia Urpi">
+								</datalist> 
+								<h3> Descripcion del trabajo </h3>
+								<input id = "description" type="text" name="Trabajo" placeholder="Description the work" class="small-3 small-centered columns"/>
+								<h3> Fecha </h3>
+								<input id = "fecha" type="text" name="fecha" placeholder="Date - example = 01/01/2000" class="small-3 small-centered columns"/>
+								<h3> Monto </h3>
+								<input id = "monto" type="number" placeholder="Amount - example = $00.00" class="small-3 small-centered columns"/>
+								<input type="button" value="Save" onclick="agregarInvoices()" class="button round"/>
+								<a id = "cancelar" href="Invoices Administration.html"> Cancelar o Salir </a>
 							</form>
 						</div>	
 					</div>
@@ -68,6 +71,7 @@
 					<script>
 					$(document).ready(function(){
 						validarNewUser();
+						cargarNumeroI();
 					});
 					</script>
 					<script>

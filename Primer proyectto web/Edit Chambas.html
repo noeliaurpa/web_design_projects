@@ -38,35 +38,34 @@
 			</ul>
 		</section>
 	</nav>
-	<div class = "contenedor_general">
+	<div class = "row">
 
-		<div class = "minicontenedor">
+		<div>
 
 			<div id= "descripcion">
-				<h2> CHAMBAS </h2>
-				<IMG src="chambas.png" whidth="50" height="50">
+				<h2> EDIT CHAMBAS </h2>
+				<IMG src="imagenes/chambas.png" whidth="50" height="50">
 				</div>
-
-				<a id= "boton" href="New Chambas.html" title = "New chamba"> New chamba</a>
 			</div>
-			<div >
-				<form id = "new_invoices" action="creacion nuevo trabajo.html" method="POST">
+			<div class = "panel">
+				<form id = "new_chambas" method="POST">
+					<h3>Numero Chamba</h3>
+					<input id = "numero" type="text" name="number chamba" placeholder="Number the chamba" class="small-3 small-centered columns">
 					<h3> Cliente </h3>
-					<input list="invoicess" placeholder="Noelia Urpi">
-					<span></span>
-					<datalist id="invoicess">
+					<input id = "cliente" type="text" list="chambass" placeholder="Choose the client, with double click" class="small-3 small-centered columns">
+					<datalist id="chambass">
 						<option value="Yamna Luna">
 							<option value="Bladimir Arroyo">
 								<option value="Noelia Urpi">
 								</datalist> 
 								<h3> Descripcion del trabajo </h3>
-								<textarea>Se encarga de todo lo que tenga que ver con la Gestion Ambiental</textarea>
+								<input id = "description"type="text" name="Trabajo" placeholder="Description the work" class="small-3 small-centered columns"/>
 								<h3> Fecha </h3>
-								<input type="date" name="fecha" placeholder="20/06/2015"/>
+								<input id = "fecha" type="text" name="fecha" placeholder="Date - example = 01/01/2000" class="small-3 small-centered columns"/>
 								<h3> Notas </h3>
-								<textarea>Es una excelente persona</textarea>
-								<input type="submit" value="Save"/>
-								<a id = "cancelar" href="creacion nuevo trabajo.html"> Cancelar </a>
+								<input id = "notas" type="text" placeholder="Notes" class="small-3 small-centered columns"/>
+								<input value="Modificar" type="button" onclick="editarChamba()" class="button round"/>
+								<a id = "cancelar" href="Chambas Administration.html"> Cancelar </a>
 							</form>
 						</div>	
 					</div>
@@ -75,6 +74,7 @@
 					<script>
 					$(document).ready(function(){
 						validarNewUser();
+						cargarEditCha();
 					});
 					</script>
 					<script>

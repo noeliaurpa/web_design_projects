@@ -32,34 +32,31 @@
 				</li>
 			</ul>
 			<ul>
-				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active" ><a href="Clients Administration.html"> CLIENTS </a></li>
+				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
 				<li><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
 	</nav>
-	<div class = "contenedor_general">
+	<div class = "row large-centered medium-centered">
 
-		<div class = "minicontenedor">
-
-			<div id= "descripcion">
+		<div>
+			<div>
 				<h2> EDIT CLIENT </h2>
-				<IMG src="group_person.png" whidth="50" height="50">
+				<IMG src="imagenes/group_person.png" whidth="50" height="50">
 				</div>
-				<a id= "boton" href="New Clients.html" title = "New Client"> New Client</a>
-
-				<div id = "new-cliente">
+				<div class = "panel">
 					<form id = "edit_cliente" action="creacion nuevo cliente.html" method="POST">
-						<h3> First Name </h3>
-						<textarea>Noelia</textarea>
-						<h3> Last Name </h3>
-						<textarea>Urpi Paniagua</textarea>
+						<h3>Numero Client</h3>
+						<input id = "numero" type="text" name="number client" placeholder="Number the client" class="small-3 small-centered columns">
 						<h3> ID </h3>
-						<textarea>2-747-044</textarea>
+						<input id = "id" type="text" name="id" placeholder="id - cedula example= 0-000-000" class="small-3 small-centered columns"/>
+						<h3> Full name </h3>
+						<input id = "full_name"type="text" name="first_name" placeholder="first name and Last name" class="small-3 small-centered columns"/>
 						<h3> Telephone number </h3>
-						<textarea>8951-7281</textarea>
-						<input type="submit" value="Save"/>
-						<a id = "cancelar" href="creacion nuevo cliente.html"> Cancelar </a>
+						<input id= "tell" type="number" placeholder="telephone number - example = 8888-8888" class="small-3 small-centered columns"/>
+						<input value="Modificar" type="button" onclick="editarCliente()" class="button round"/>
+						<a id = "cancelar" href="Clients Administration.html"> Cancelar </a>
 					</form>
 				</div>						
 			</div>
@@ -69,6 +66,8 @@
 		<script>
 		$(document).ready(function(){
 			validarNewUser();
+			cargarEditClie();
+
 		});
 		</script>
 		<script>

@@ -33,29 +33,26 @@
 			</ul>
 			<ul>
 				<li><a href="Clients Administration.html"> CLIENTS </a></li>
-				<li class="active" ><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
-				<li><a href="Invoices Administration.html"> INVOICES </a></li>
+				<li><a id="cuentas" href="Chambas Administration.html"> CHAMBAS </a></li>
+				<li class="active" ><a href="Invoices Administration.html"> INVOICES </a></li>
 			</ul>
 		</section>
 	</nav>
-	<div class = "contenedor_general">
+	<div class = "row large-centered medium-centered">
 
-		<div class = "minicontenedor">
+		<div>
 
-			<div id= "descripcion">
+			<div>
 				<h2> DELETE INVOICES </h2>
-				<IMG src="invoices_2.png" whidth="50" height="50">
+				<IMG src="imagenes/invoices_2.png" whidth="50" height="50">
 				</div>
-				<a id= "boton" href="new invoices.html" title = "New Invoices"> New Invoices</a>				
 			</div>
 			<div class = "minicontenedor">
-				<h4> Are you sure you want to delete the invoice with client "Noelia Urpi" ? </h4>
+				<h4> Are you sure you want to delete the invoice? </h4>
 				<div class="opcion">
-					<ul>
-						<li><a id= "si" href="Invoices Administration.html" value="YES"> YES </a>
-							<li><a id= "no" href="creacion nueva factura.html" value="NO"> NO </a>
-							</ul>
-						</div>
+					<a type = "button" id= "si" href="Invoices Administration.html" class = "button round" title = "Delete invoice" onclick = "EliminarInvoiceIndicado()">YES</a>
+					<a type = "button" id= "no" href="Invoices Administration.html" class = "button round" title = "Not delete invoice"> 'NO' </a>
+				</div>
 						<!--<form id = "delete_cliente" action="Clients Administration.html" method="POST">
 							<ul>
 								<li><input id= "si" type="submit" value="YES"></li>

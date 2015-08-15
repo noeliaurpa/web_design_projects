@@ -34,6 +34,8 @@
 			<div class="row large-centered medium-centered"></div>
 			<div id = "inicio" class = "panel"> 
 				<form >
+					<h3>Numero Usuario</h3>
+					<input id = "numero" type="text" name="number chamba" placeholder="Number the chamba" class="small-3 small-centered columns">
 					<h3> Nombre completo</h3>
 					<input id = "fullName" type="text" list="invoicess" placeholder="nombre de usuario ej: hola123" class="small-3 small-centered columns">
 					<h3> Username </h3>
@@ -49,12 +51,17 @@
 					alert = boton rojo
 					success = boton verde
 					button = azul -> este es el normal
-			-->
+				-->
 			</div>
 		</div>
 	</div>
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/foundation.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		cargarNumeroUS();
+	});
+	</script>
 	<script>
 	$(document).foundation();
 	</script>

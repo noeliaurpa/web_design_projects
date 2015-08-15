@@ -23,39 +23,59 @@ input[type="button"]{
 
 /*.nuevo{
 	margin: 0% 0% 0% 90%;
-}*/
-input[type = "text"], {
-	margin: 0% 0% 0% 41%;
-}
+	}*/
+	input[type = "text"], {
+		margin: 0% 0% 0% 41%;
+	}
 
-.top-bar-section li.active_alert:not(.has-form) a:not(.button) {
-      background: #B22222;
-      color: #FFFFFF;
-      line-height: 2.8125rem;
-      padding: 0 0.9375rem; }
-.top-bar-section li.active_alert:not(.has-form) a:not(.button):hover {
-        background: #DC143C;
-        color: #FFFFFF; }
-}
-@media only screen and (min-width: 320px) and (max-width: 568px) {
-	input{
-		display: inline-block;
+	a img{
+		width: 2.18rem;
 	}
-	input[type ="button"]{
-		margin: 0% 0% 0% 30%;
-		font-size: x-small;
-	}
-	.panel h3{
-		font-size: x-small;
-		padding: 0px 0px 0px 79px;
-	}
-	.panel h1{
-		font-size: x-large;
-	}
-}
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-	.panel h3{
-		padding: 0% 0% 0% 36%;
+	.opcion{
+		margin: 10% 0% 0% 27%;
 	}
-}
+
+	#si{
+		margin: 0px 58px 1.25rem;
+	}
+	.top-bar-section li.active_alert:not(.has-form) a:not(.button) {
+		background: #B22222;
+		color: #FFFFFF;
+		line-height: 2.8125rem;
+		padding: 0 0.9375rem; 
+	}
+	.top-bar-section li.active_alert:not(.has-form) a:not(.button):hover {
+		background: #DC143C;
+		color: #FFFFFF; 
+	}
+	@media only screen and (min-width: 320px) and (max-width: 568px) {
+		input{
+			display: inline-block;
+		}
+		input[type = "text"],input[type = "number"], input[type = "password"]{
+			width: 60%;
+		}
+
+		input[type ="button"]{
+			margin: 0% 0% 0% 30%;
+			font-size: x-small;
+		}
+		.panel h3{
+			font-size: x-small;
+			padding: 0px 0px 0px 0px;
+		}
+		.panel h1{
+			font-size: x-large;
+		}
+
+		.opcion{
+			margin: 0% 0% 0% 0%;
+		}
+	}
+
+	@media only screen and (min-width: 768px) and (max-width: 1024px) {
+		.panel h3{
+			padding: 0% 0% 0% 0%;
+		}
+	}
