@@ -187,32 +187,37 @@ function agregarChambas(){
 }
 
 function cargarTablaChambas(){
-
+	debugger
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	var idEdit;
+	var idDelete;
 	for (var i = 0; i < listcliente.length; i++) {
-		var table = document.getElementById("regtable");
-		var row = table.insertRow();
-		var numeroChambas = row.insertCell(0);
-		var clienteCell = row.insertCell(1);
-		var descriptionCell = row.insertCell(2);
-		var fechaCell = row.insertCell(3);
-		var notasCell = row.insertCell(4);
-		var modify = row.insertCell(5);
-		var dilete = row.insertCell(6);
+		for (var j = 0; j <listcliente[i].length; j++) {
+			var table = document.getElementById("regtable");
+			var row = table.insertRow();
+			var numeroChambas = row.insertCell(0);
+			var clienteCell = row.insertCell(1);
+			var descriptionCell = row.insertCell(2);
+			var fechaCell = row.insertCell(3);
+			var notasCell = row.insertCell(4);
+			var modify = row.insertCell(5);
+			var dilete = row.insertCell(6);
 
-		numeroChambas.innerHTML = i;
-		clienteCell.innerHTML  = listcliente[i][1];
-		descriptionCell.innerHTML  = listcliente[i][2];
-		fechaCell.innerHTML  = listcliente[i][3];
-		notasCell.innerHTML  = listcliente[i][4];
-		modify.innerHTML = "";
-		dilete.innerHTML = "";
-		//debugger;
+			numeroChambas.innerHTML = i;
+			clienteCell.innerHTML  = listcliente[i][j+1];
+			descriptionCell.innerHTML  = listcliente[i][j+2];
+			fechaCell.innerHTML  = listcliente[i][j+3];
+			notasCell.innerHTML  = listcliente[i][j+4];
+			modify.innerHTML = "";
+			dilete.innerHTML = "";
+			idEdit = listcliente[i][j];
+			idDelete = listcliente[i][j];
+    //debugger;
 		// crea un elemento "a" que va a ser el q encapsule a la imagen
 		var link = document.createElement("A");
 		link.setAttribute("href", "Edit Chambas.html");
-		link.setAttribute("id" , i);
+		link.setAttribute("id" , idEdit);
 		link.setAttribute("onclick", "modif(this)");
   		// crea el elemento imagen
   		var x = document.createElement("IMG");
@@ -226,7 +231,7 @@ function cargarTablaChambas(){
 
     	var link2 = document.createElement("A");
     	link2.setAttribute("href","Delete Chambas.html");
-    	link2.setAttribute("id" , i);
+    	link2.setAttribute("id" , idDelete);
     	link2.setAttribute("onclick", "elim(this)");
 
     	var x2 = document.createElement("IMG");
@@ -235,7 +240,10 @@ function cargarTablaChambas(){
     	link2.appendChild(x2);
 
     	dilete.appendChild(link2,x2);
+    	break;
     };
+
+};
 }
 
 
@@ -275,27 +283,32 @@ function agregarClientes(){
 function cargarTablaClientes(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	var idEdit;
+	var idDelete;
 	for (var i = 0; i < listcliente.length; i++) {
-		var table = document.getElementById("regtable");
-		var row = table.insertRow();
-		var numeroClientes = row.insertCell(0);
-		var idCell = row.insertCell(1);
-		var full_nameCell = row.insertCell(2);
-		var telephoneCell = row.insertCell(3);
-		var modify = row.insertCell(4);
-		var dilete = row.insertCell(5);
+		for (var j = 0; j < listcliente[i].length; j++) {
+			var table = document.getElementById("regtable");
+			var row = table.insertRow();
+			var numeroClientes = row.insertCell(0);
+			var idCell = row.insertCell(1);
+			var full_nameCell = row.insertCell(2);
+			var telephoneCell = row.insertCell(3);
+			var modify = row.insertCell(4);
+			var dilete = row.insertCell(5);
 
-		numeroClientes.innerHTML = i;
-		idCell.innerHTML  = listcliente[i][1];
-		full_nameCell.innerHTML  = listcliente[i][2];
-		telephoneCell.innerHTML  = listcliente[i][3];
-		modify.innerHTML = "";
-		dilete.innerHTML = "";
+			numeroClientes.innerHTML = i;
+			idCell.innerHTML  = listcliente[i][1];
+			full_nameCell.innerHTML  = listcliente[i][2];
+			telephoneCell.innerHTML  = listcliente[i][3];
+			modify.innerHTML = "";
+			dilete.innerHTML = "";
+			idEdit = listcliente[i][j];
+			idDelete = listcliente[i][j];
 
-		var link = document.createElement("A");
-		link.setAttribute("href", "Edit Client.html");
-		link.setAttribute("id" , i);
-		link.setAttribute("onclick", "modif(this)");
+			var link = document.createElement("A");
+			link.setAttribute("href", "Edit Client.html");
+			link.setAttribute("id" , idEdit);
+			link.setAttribute("onclick", "modif(this)");
 
   		// crea el elemento imagen
   		var x = document.createElement("IMG");
@@ -309,7 +322,7 @@ function cargarTablaClientes(){
 
     	var link2 = document.createElement("A");
     	link2.setAttribute("href","Delete clients.html");
-    	link2.setAttribute("id" , i);
+    	link2.setAttribute("id" , idDelete);
     	link2.setAttribute("onclick", "elim(this)");
 
     	var x2 = document.createElement("IMG");
@@ -318,7 +331,9 @@ function cargarTablaClientes(){
     	link2.appendChild(x2);
     	
     	dilete.appendChild(link2,x2);
+    	break;
     };
+};
 }
 
 
@@ -358,29 +373,34 @@ function agregarInvoices(){
 function cargarTablaInvoices(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	var idEdit;
+	var idDelete;
 	for (var i = 0; i < listcliente.length; i++) {
-		var table = document.getElementById("regtable");
-		var row = table.insertRow();
-		var numeroInvoice = row.insertCell(0);
-		var clienteCell = row.insertCell(1);
-		var descriptionCell = row.insertCell(2);
-		var fechaCell = row.insertCell(3);
-		var montoCell = row.insertCell(4);
-		var modify = row.insertCell(5);
-		var dilete = row.insertCell(6);
+		for (var j = 0; j < listcliente[i].length; j++) {
+			var table = document.getElementById("regtable");
+			var row = table.insertRow();
+			var numeroInvoice = row.insertCell(0);
+			var clienteCell = row.insertCell(1);
+			var descriptionCell = row.insertCell(2);
+			var fechaCell = row.insertCell(3);
+			var montoCell = row.insertCell(4);
+			var modify = row.insertCell(5);
+			var dilete = row.insertCell(6);
 
-		numeroInvoice.innerHTML = i;
-		clienteCell.innerHTML  = listcliente[i][1];
-		descriptionCell.innerHTML  = listcliente[i][2];
-		fechaCell.innerHTML  = listcliente[i][3];
-		montoCell.innerHTML  = listcliente[i][4];
-		modify.innerHTML = "";
-		dilete.innerHTML = "";
+			numeroInvoice.innerHTML = i;
+			clienteCell.innerHTML  = listcliente[i][1];
+			descriptionCell.innerHTML  = listcliente[i][2];
+			fechaCell.innerHTML  = listcliente[i][3];
+			montoCell.innerHTML  = listcliente[i][4];
+			modify.innerHTML = "";
+			dilete.innerHTML = "";
+			idEdit = listcliente[i][j];
+			idDelete = listcliente[i][j];
 
-		var link = document.createElement("A");
-		link.setAttribute("href", "Edit Invoice.html");
-		link.setAttribute("id" , i);
-		link.setAttribute("onclick", "modif(this)");
+			var link = document.createElement("A");
+			link.setAttribute("href", "Edit Invoice.html");
+			link.setAttribute("id" , idEdit);
+			link.setAttribute("onclick", "modif(this)");
 
   		// crea el elemento imagen
   		var x = document.createElement("IMG");
@@ -394,7 +414,7 @@ function cargarTablaInvoices(){
 
     	var link2 = document.createElement("A");
     	link2.setAttribute("href","Delete Invoice.html");
-    	link2.setAttribute("id" , i);
+    	link2.setAttribute("id" , idDelete);
     	link2.setAttribute("onclick", "elim(this)");
 
 
@@ -404,32 +424,41 @@ function cargarTablaInvoices(){
     	link2.appendChild(x2);
     	
     	dilete.appendChild(link2,x2);
+    	break;
     };
+};
 }
 
 function cargarTablaUsers(){
+	var idEdit;
+	var idDelete;
 	var listcliente =JSON.parse(localStorage.getItem("usuarios"));
 	for (var i = 0; i < listcliente.length; i++) {
-		var table = document.getElementById("regtable");
-		var row = table.insertRow();
-		var nombreusCell = row.insertCell(0);
-		var username_iusCell = row.insertCell(1);
-		var password_iusCell = row.insertCell(2);
-		var passwordrepetCell = row.insertCell(3);
-		var modify = row.insertCell(4);
-		var dilete = row.insertCell(5);
+		for (var j = 0; j < listcliente[i].length; j++) {
+			var table = document.getElementById("regtable");
+			var row = table.insertRow();
+			var numeroUsr = row.insertCell(0);
+			var nombreusCell = row.insertCell(1);
+			var username_iusCell = row.insertCell(2);
+			var password_iusCell = row.insertCell(3);
+			var passwordrepetCell = row.insertCell(4);
+			var modify = row.insertCell(5);
+			var dilete = row.insertCell(6);
 
-		nombreusCell.innerHTML = listcliente[i][0];
-		username_iusCell.innerHTML  = listcliente[i][1];
-		password_iusCell.innerHTML  = "********************";
-		passwordrepetCell.innerHTML = "********************";
-		modify.innerHTML = "";
-		dilete.innerHTML = "";
+			numeroUsr.innerHTML = listcliente[i][0];
+			nombreusCell.innerHTML = listcliente[i][1];
+			username_iusCell.innerHTML  = listcliente[i][2];
+			password_iusCell.innerHTML  = "********************";
+			passwordrepetCell.innerHTML = "********************";
+			modify.innerHTML = "";
+			dilete.innerHTML = "";
+			idEdit = listcliente[i][j];
+			idDelete = listcliente[i][j];
 
-		var link = document.createElement("A");
-		link.setAttribute("href", "Edit User.html");
-		link.setAttribute("id" , i);
-		link.setAttribute("onclick", "modif(this)");
+			var link = document.createElement("A");
+			link.setAttribute("href", "Edit User.html");
+			link.setAttribute("id" , idEdit);
+			link.setAttribute("onclick", "modif(this)");
 
   		// crea el elemento imagen
   		var x = document.createElement("IMG");
@@ -443,7 +472,7 @@ function cargarTablaUsers(){
 
     	var link2 = document.createElement("A");
     	link2.setAttribute("href","Delete User.html");
-    	link2.setAttribute("id" , i);
+    	link2.setAttribute("id" , idDelete);
     	link2.setAttribute("onclick", "elim(this)");
 
 
@@ -453,7 +482,9 @@ function cargarTablaUsers(){
     	link2.appendChild(x2);
     	
     	dilete.appendChild(link2,x2);
+    	break;
     };
+};
 }
 
 function cargarNumeroI(){
@@ -501,7 +532,6 @@ function cargarNumeroCL(){
 
 function cargarNumeroUS(){
 	debugger;
-	var usuario_nombre = (localStorage.getItem("usuarios"));
 	var listUser =JSON.parse(localStorage.getItem("usuarios"));
 	if(listUser == null){
 		var numeroUsr = 0;
@@ -525,10 +555,7 @@ function cargarEditCha(){
 	modificar = JSON.parse(localStorage.getItem("id"));
 	for (var i = 0; i < listChamba.length; i++) {
 		for (var j = 0; j < listChamba[i].length; j++) {
-			if(modificar > listChamba[i][j]){
-			}
 			if(modificar == listChamba[i][j]){
-				alert("Es igual");
 				da1 =  listChamba[i][j];
 				da2 = listChamba[i][j+1];
 				da3 = listChamba[i][j+2];
@@ -552,7 +579,6 @@ function cargarEditClie(){
 	for (var i = 0; i < listChamba.length; i++) {
 		for (var j = 0; j < listChamba[i].length; j++) {
 			if(modificar == listChamba[i][j]){
-				alert("Es igual");
 				da1 =  listChamba[i][j];
 				da2 = listChamba[i][j+1];
 				da3 = listChamba[i][j+2];
@@ -574,7 +600,6 @@ function cargarEditInv(){
 	for (var i = 0; i < listChamba.length; i++) {
 		for (var j = 0; j < listChamba[i].length; j++) {
 			if(modificar == listChamba[i][j]){
-				alert("Es igual");
 				da1 =  listChamba[i][j];
 				da2 = listChamba[i][j+1];
 				da3 = listChamba[i][j+2];
@@ -591,6 +616,29 @@ function cargarEditInv(){
 	
 }
 
+function cargarEditUsr(){
+	debugger;
+	var usuario_nombre = JSON.parse(localStorage.getItem("usuarios"));
+	modificar = JSON.parse(localStorage.getItem("id"));
+	for (var i = 0; i < usuario_nombre.length; i++) {
+		for (var j = 0; j < usuario_nombre[i].length; j++) {
+			if(modificar == usuario_nombre[i][j]){
+				da1 =  usuario_nombre[i][j];
+				da2 = usuario_nombre[i][j+1];
+				da3 = usuario_nombre[i][j+2];
+				da4 = usuario_nombre[i][j+3];
+				da5 = usuario_nombre[i][j+4];
+				document.getElementById("numero").value =  da1;
+				document.getElementById("fullName").value = da2;
+				document.getElementById("user").value = da3;
+				document.getElementById("password").value = da4;
+				document.getElementById("password_repeat").value = da5;
+			}
+		};
+
+	}
+}
+
 function editarChamba(){
 	debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
@@ -600,7 +648,7 @@ function editarChamba(){
 		for (var j = 0; j < listChamba[i].length; j++) {
 			if(modificar == listChamba[i][j]){
 				//obtener id
-				var i = document.getElementById("numero").value;
+				var nn = document.getElementById("numero").value;
 			// obtener el cliente
 			var c = document.getElementById("cliente").value;
 			// obtener la descripcion
@@ -609,7 +657,7 @@ function editarChamba(){
 			var f = document.getElementById("fecha").value;
 			// obtener las notas
 			var n = document.getElementById("notas").value;
-			listChamba[i][j] = i;
+			listChamba[i][j] = nn;
 			listChamba[i][j+1] = c;
 			listChamba[i][j+2] = d;
 			listChamba[i][j+3] = f;
@@ -631,14 +679,14 @@ function editarCliente(){
 		for (var j = 0; j < listCliente[i].length; j++) {
 			if(modificar == listCliente[i][j]){
 				//obtener id
-				var i = document.getElementById("numero").value;
+				var n = document.getElementById("numero").value;
 				// obtener el numero de cedula
 				var c = document.getElementById("id").value;
 				// obtener el nombre completo
 				var fn = document.getElementById("full_name").value;
 				// obtener el numero de telefono
 				var t = document.getElementById("tell").value;
-				listCliente[i][j] = i;
+				listCliente[i][j] = n;
 				listCliente[i][j+1] = c;
 				listCliente[i][j+2] = fn;
 				listCliente[i][j+3] = t;
@@ -659,7 +707,7 @@ function editarInvoice(){
 		for (var j = 0; j < listInvoice[i].length; j++) {
 			if(modificar == listInvoice[i][j]){
 				//obtener id
-				var i = document.getElementById("numero").value;
+				var n = document.getElementById("numero").value;
 			// obtener el cliente
 			var c = document.getElementById("cliente").value;
 			// obtener la descripcion
@@ -668,7 +716,7 @@ function editarInvoice(){
 			var f = document.getElementById("fecha").value;
 			// obtener las monto
 			var m = document.getElementById("monto").value;
-			listInvoice[i][j] = i;
+			listInvoice[i][j] = n;
 			listInvoice[i][j+1] = c;
 			listInvoice[i][j+2] = d;
 			listInvoice[i][j+3] = f;
@@ -681,6 +729,35 @@ function editarInvoice(){
 };
 }
 
+function editarUsers(){
+	debugger;
+	var listChamba = JSON.parse(localStorage.getItem("usuarios"));
+	modificar = JSON.parse(localStorage.getItem("id"));
+	for (var i = 0; i < listChamba.length; i++) {
+		for (var j = 0; j < listChamba[i].length; j++) {
+			if(modificar == listChamba[i][j]){
+				//obtener id
+				var n = document.getElementById("numero").value;
+			// obtener el cliente
+			var fn = document.getElementById("fullName").value;
+			// obtener la descripcion
+			var u = document.getElementById("user").value;
+			// obtener la fecha
+			var p = document.getElementById("password").value;
+			// obtener las notas
+			var pr = document.getElementById("password_repeat").value;
+			listChamba[i][j] = n;
+			listChamba[i][j+1] = fn;
+			listChamba[i][j+2] = u;
+			listChamba[i][j+3] = p;
+			listChamba[i][j+4] = pr;
+			localStorage['usuarios'] = JSON.stringify(listChamba);
+			alert("Se Modificó correctamente");
+			location.href = "ver_usuarios.html";
+		}
+	};
+};
+}
 function elim(elemento){
 	debugger;
 	var id = elemento.id;
@@ -699,7 +776,7 @@ function EliminarInvoiceIndicado()
 			if(eliminar == invoices[i][j]){
 				invoices.splice(i, 1);
 				localStorage[acumulador] = JSON.stringify(invoices);
-				console.log("Se eliminó");
+				alert("Se Eliminó correctamente");
 			}
 		}
 	}
@@ -716,7 +793,7 @@ function EliminarChambaIndicada()
 			if(eliminar == chambas[i][j]){
 				chambas.splice(i, 1);
 				localStorage[acumulador] = JSON.stringify(chambas);
-				console.log("Se eliminó");
+				alert("Se Eliminó correctamente");
 			}
 		}
 	}
@@ -733,8 +810,68 @@ function EliminarClientIndicado()
 			if(eliminar == clientes[i][j]){
 				clientes.splice(i, 1);
 				localStorage[acumulador] = JSON.stringify(clientes);
-				console.log("Se eliminó");
+				alert("Se Eliminó correctamente");
 			}
 		}
 	}
+}
+
+function EliminarUsuarioIndicado()
+{
+	debugger;
+	var chambas = JSON.parse(localStorage.getItem("usuarios"));
+	for (i=0; i< chambas.length; i++){
+		for (j=0; j< chambas[i].length; j++){
+			eliminar = JSON.parse(localStorage.getItem("id"));
+			if(eliminar == chambas[i][j]){
+				chambas.splice(i, 1);
+				localStorage['usuarios'] = JSON.stringify(chambas);
+				alert("Se Eliminó correctamente");
+			}
+		}
+	}
+}
+
+function cargarListaClientesChambas(){
+	debugger;
+	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	var lista =JSON.parse(localStorage.getItem(listcliente));
+
+	var datalist = document.createElement("datalist");
+	datalist.setAttribute("id", "chambass");
+	for (var i = 0; i < lista.length; i++) {
+		for (var j = 0; j < lista[i].length; j++) {
+  			// crea el elemento imagen
+  			var opcion = document.createElement("option");
+  			opcion.setAttribute("value", lista[i][2]);
+    		// se lo agrega al elemento link que creo antes
+    		datalist.appendChild(opcion);
+    		break;
+    	};
+    };
+    var input = document.getElementById("cliente");
+    // agrega el elmento al body o a quién sea donde se va a agregar, podria ser un div
+    input.appendChild(datalist);
+}
+
+function cargarListaClientesInvoices(){
+	debugger;
+	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	var lista =JSON.parse(localStorage.getItem(listcliente));
+
+	var datalist = document.createElement("datalist");
+	datalist.setAttribute("id", "invoicess");
+	for (var i = 0; i < lista.length; i++) {
+		for (var j = 0; j < lista[i].length; j++) {
+  			// crea el elemento imagen
+  			var opcion = document.createElement("option");
+  			opcion.setAttribute("value", lista[i][2]);
+    		// se lo agrega al elemento link que creo antes
+    		datalist.appendChild(opcion);
+    		break;
+    	};
+    };
+    var input = document.getElementById("cliente");
+    // agrega el elmento al body o a quién sea donde se va a agregar, podria ser un div
+    input.appendChild(datalist);
 }

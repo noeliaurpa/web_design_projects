@@ -53,32 +53,28 @@
 					<input id = "numero" type="text" name="number invoice" placeholder="Number the invoice" class="small-3 small-centered columns">
 					<h3> Cliente </h3>
 					<input id = "cliente" type="text" list="invoicess" placeholder="Choose the client, with double click" class="small-3 small-centered columns">
-					<datalist id="invoicess">
-						<option value="Yamna Luna">
-							<option value="Bladimir Arroyo">
-								<option value="Noelia Urpi">
-								</datalist> 
-								<h3> Descripcion del trabajo </h3>
-								<input id = "description" type="text" name="Trabajo" placeholder="Description the work" class="small-3 small-centered columns"/>
-								<h3> Fecha </h3>
-								<input id = "fecha" type="text" name="fecha" placeholder="Date - example = 01/01/2000" class="small-3 small-centered columns"/>
-								<h3> Monto </h3>
-								<input id = "monto" type="number" placeholder="Amount - example = $00.00" class="small-3 small-centered columns"/>
-								<input type="button" value="Modificar" onclick="editarInvoice()" class="button round"/>
-								<a id = "cancelar" href="Invoices Administration.html"> Cancelar </a>
-							</form>
-						</div>
-					</div>
-					<script src="js/vendor/jquery.js"></script>
-					<script src="js/foundation.min.js"></script>
-					<script>
-					$(document).ready(function(){
-						validarNewUser();
-						cargarEditInv();
-					});
-					</script>
-					<script>
-					$(document).foundation();
-					</script>
-				</body>
-				</html>
+					<h3> Descripcion del trabajo </h3>
+					<input id = "description" type="text" name="Trabajo" placeholder="Description the work" class="small-3 small-centered columns"/>
+					<h3> Fecha </h3>
+					<input id = "fecha" type="text" name="fecha" placeholder="Date - example = 01/01/2000" class="small-3 small-centered columns"/>
+					<h3> Monto </h3>
+					<input id = "monto" type="number" placeholder="Amount - example = $00.00" class="small-3 small-centered columns"/>
+					<input type="button" value="Modificar" onclick="editarInvoice()" class="button round"/>
+					<a id = "cancelar" href="Invoices Administration.html"> Cancelar </a>
+				</form>
+			</div>
+		</div>
+		<script src="js/vendor/jquery.js"></script>
+		<script src="js/foundation.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			validarNewUser();
+			cargarEditInv();
+			cargarListaClientesInvoices();
+		});
+		</script>
+		<script>
+		$(document).foundation();
+		</script>
+	</body>
+	</html>
