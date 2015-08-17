@@ -34,17 +34,18 @@ function iniciar_Sesion()
 		alert("Debe crearlo primero antes de iniciar sesion");
 	}else if(validar === "Entra como administracion"){
 		location.href="tablero-de-instrucciones.html";
+		alert("BIENVENIDO");
 
 	}else if(validar === "Entra como particular"){
 		user_actual = document.getElementById("user").value;
 		localStorage.setItem("Usuario_Actual", user_actual);
 		location.href="tablero-de-instrucciones.html";
+		alert("BIENVENIDO");
 	}
 
 }
 
 // Esta funcion muestra todo el contenido de los input(nombre, apellido y telefono) en la consola
-
 function crear_usuario()
 {
 	validacion();
@@ -53,26 +54,39 @@ function crear_usuario()
 		usuario = [];
 		var contrasenna = document.getElementById("password").value;
 		var contrasenna_repeat = document.getElementById("password_repeat").value;
-		if(contrasenna === contrasenna_repeat){
-			usuario.push(document.getElementById("numero").value, document.getElementById("fullName").value, document.getElementById("user").value,
-				document.getElementById("password").value, document.getElementById("password_repeat").value);
-			User.push(usuario);
-			localStorage['usuarios'] = JSON.stringify(User);
-			alert("Usuario creado ya puedes iniciar sesion");
-			location.href="tablero-de-instrucciones.html"
+		if(contrasenna == "" || contrasenna == null){
+			alert("No puede dejar el campo de contraseña vacio");
+		}else if(contrasenna_repeat == "" || contrasenna_repeat == null){
+			alert("No puede dejar el campo de repetir contraseña vacio");
 		}else{
-			alert("No puedes crear el usuario porque las contraseñas son diferentes, asegurese que sea las mismas");
-		}
+			if(contrasenna === contrasenna_repeat){
+				var nombreU = document.getElementById("user").value;
+				var nombreFull = document.getElementById("fullName").value;
+				if(nombreU == "" || nombreU == null){
+					alert("No puede dejar el campo de nombre de usuario vacio");
+				}else if(nombreFull == "" || nombreFull == null){
+					alert("No puede dejar el campo de nombre completo vacio");
+				}else{
+					usuario.push(document.getElementById("numero").value, document.getElementById("fullName").value, document.getElementById("user").value,
+						document.getElementById("password").value, document.getElementById("password_repeat").value);
+					User.push(usuario);
+					localStorage['usuarios'] = JSON.stringify(User);
+					alert("Usuario creado ya puedes iniciar sesion");
+					location.href="tablero-de-instrucciones.html"
+				}
+			}else{
+				alert("No puedes crear el usuario porque las contraseñas son diferentes, asegurese que sea las mismas");
+			}
 		//usuario.push(jQuery('#user').val()); esto es utilizando jQuery, solo puede servir si tiene la librería
-
-	}else if(validar === "Entra como administracion"){
-		alert("No puedes crear con ese nombre de usuario porque ya existe");
-	}else if(validar === "Entra como particular"){
-		alert("No puedes crear con ese nombre de usuario porque ya existe");
-	}else if(validar === "No_se_pudo_crear"){
-		alert("No se pudo crear el usuario");
-		validar = null;
 	}
+}else if(validar === "Entra como administracion"){
+	alert("No puedes crear con ese nombre de usuario porque ya existe");
+}else if(validar === "Entra como particular"){
+	alert("No puedes crear con ese nombre de usuario porque ya existe");
+}else if(validar === "No_se_pudo_crear"){
+	alert("No se pudo crear el usuario");
+	validar = null;
+}
 } 
 
 function validacion()
@@ -165,29 +179,39 @@ function agregarChambas(){
 	var notas = document.getElementById("notas").value;
 	var modify;
 	var dilete;
-	chambas = [];
-	if(arreglo == null){
-		arreglo = [];
-		chambas.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
-			document.getElementById("fecha").value,document.getElementById("notas").value);
-		arreglo.push(chambas);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+	if(cliente == "" || cliente == null){
+		alert("No puede dejar el campo de cliente vacio");
+	}else if(description == "" || description == null){
+		alert("No puede dejar el campo de descripcion vacio");
+	}else if(fecha == "" || fecha == null){
+		alert("No puede dejar el campo de fecha vacio");
+	}else if(notas == "" || notas == null){
+		alert("No puede dejar el campo de notas vacio");
 	}else{
-		arreglo.push(chambas);
-		chambas.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
-			document.getElementById("fecha").value,document.getElementById("notas").value);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+		chambas = [];
+		if(arreglo == null){
+			arreglo = [];
+			chambas.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
+				document.getElementById("fecha").value,document.getElementById("notas").value);
+			arreglo.push(chambas);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}else{
+			arreglo.push(chambas);
+			chambas.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
+				document.getElementById("fecha").value,document.getElementById("notas").value);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}
 	}
 }
 
 function cargarTablaChambas(){
-	debugger
+	//debugger
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
 	var idEdit;
@@ -259,24 +283,32 @@ function agregarClientes(){
 	var telephone = document.getElementById("tell").value;
 	var modify;
 	var dilete;
-	clientes = [];
-	if(arreglo == null){
-		arreglo = [];
-		clientes.push(document.getElementById("numero").value,document.getElementById("id").value,
-			document.getElementById("full_name").value,document.getElementById("tell").value);
-		arreglo.push(clientes);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+	if(id == "" || id == null){
+		alert("No puede dejar el campo de cedula vacio");
+	}else if(full_name == "" || full_name == null){
+		alert("No puede dejar el campo de nombre completo vacio");
+	}else if(telephone == "" || telephone == null){
+		alert("No puede dejar el campo de telefono vacio");
 	}else{
-		arreglo.push(clientes);
-		clientes.push(document.getElementById("numero").value,document.getElementById("id").value,
-			document.getElementById("full_name").value,document.getElementById("tell").value);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+		clientes = [];
+		if(arreglo == null){
+			arreglo = [];
+			clientes.push(document.getElementById("numero").value,document.getElementById("id").value,
+				document.getElementById("full_name").value,document.getElementById("tell").value);
+			arreglo.push(clientes);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}else{
+			arreglo.push(clientes);
+			clientes.push(document.getElementById("numero").value,document.getElementById("id").value,
+				document.getElementById("full_name").value,document.getElementById("tell").value);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}
 	}
 }
 
@@ -339,7 +371,7 @@ function cargarTablaClientes(){
 
 var invoices = [];
 function agregarInvoices(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
 	var arreglo = JSON.parse(localStorage.getItem(usuario_nombre));
 	var numeroInvoice = document.getElementById("numero").value;
@@ -349,24 +381,34 @@ function agregarInvoices(){
 	var monto = document.getElementById("monto").value;
 	var modify;
 	var dilete;
-	invoices = [];
-	if(arreglo == null){
-		arreglo = [];
-		invoices.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
-			document.getElementById("fecha").value,document.getElementById("monto").value);
-		arreglo.push(invoices);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+	if(cliente == "" || cliente == null){
+		alert("No puede dejar el campo de cliente vacio");
+	}else if(description == "" || description == null){
+		alert("No puede dejar el campo de descripcion vacio");
+	}else if(fecha == "" || fecha == null){
+		alert("No puede dejar el campo de fecha vacio");
+	}else if(monto == "" || monto == null){
+		alert("No puede dejar el campo de monto vacio");
 	}else{
-		arreglo.push(invoices);
-		invoices.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
-			document.getElementById("fecha").value,document.getElementById("monto").value);
-		localStorage[usuario_nombre] = JSON.stringify(arreglo);
-		$("#mensaje").show();
-		alert("Se guardó correctamente");
-		location.reload();
+		invoices = [];
+		if(arreglo == null){
+			arreglo = [];
+			invoices.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
+				document.getElementById("fecha").value,document.getElementById("monto").value);
+			arreglo.push(invoices);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}else{
+			arreglo.push(invoices);
+			invoices.push(document.getElementById("numero").value,document.getElementById("cliente").value,document.getElementById("description").value,
+				document.getElementById("fecha").value,document.getElementById("monto").value);
+			localStorage[usuario_nombre] = JSON.stringify(arreglo);
+			$("#mensaje").show();
+			alert("Se guardó correctamente");
+			location.reload();
+		}
 	}
 }
 
@@ -488,7 +530,7 @@ function cargarTablaUsers(){
 }
 
 function cargarNumeroI(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
 	var listInvoices =JSON.parse(localStorage.getItem(usuario_nombre));
 	if(listInvoices == null){
@@ -502,7 +544,7 @@ function cargarNumeroI(){
 }
 
 function cargarNumeroCH(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var listClient =JSON.parse(localStorage.getItem(usuario_nombre));
 	if(listClient == null){
@@ -516,7 +558,7 @@ function cargarNumeroCH(){
 }
 
 function cargarNumeroCL(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
 	if(listChamba == null){
@@ -531,7 +573,7 @@ function cargarNumeroCL(){
 
 
 function cargarNumeroUS(){
-	debugger;
+	//debugger;
 	var listUser =JSON.parse(localStorage.getItem("usuarios"));
 	if(listUser == null){
 		var numeroUsr = 0;
@@ -549,7 +591,7 @@ function modif(elemento){
 }
 
 function cargarEditCha(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
@@ -566,6 +608,7 @@ function cargarEditCha(){
 				document.getElementById("description").value = da3;
 				document.getElementById("fecha").value = da4;
 				document.getElementById("notas").value = da5;
+				
 			}
 		};
 	};
@@ -617,7 +660,7 @@ function cargarEditInv(){
 }
 
 function cargarEditUsr(){
-	debugger;
+	//debugger;
 	var usuario_nombre = JSON.parse(localStorage.getItem("usuarios"));
 	modificar = JSON.parse(localStorage.getItem("id"));
 	for (var i = 0; i < usuario_nombre.length; i++) {
@@ -640,7 +683,7 @@ function cargarEditUsr(){
 }
 
 function editarChamba(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
@@ -657,21 +700,36 @@ function editarChamba(){
 			var f = document.getElementById("fecha").value;
 			// obtener las notas
 			var n = document.getElementById("notas").value;
-			listChamba[i][j] = nn;
-			listChamba[i][j+1] = c;
-			listChamba[i][j+2] = d;
-			listChamba[i][j+3] = f;
-			listChamba[i][j+4] = n;
-			localStorage[usuario_nombre] = JSON.stringify(listChamba);
-			alert("Se Modificó correctamente");
-			location.href = "Chambas Administration.html";
+			if(c == "" || c == null){
+				alert("No puede dejar el campo de cliente vacio");
+				break;
+			}else if(d == "" || d == null){
+				alert("No puede dejar el campo de descripcion vacio");
+				break;
+			}else if(f == "" || f == null){
+				alert("No puede dejar el campo de fecha vacio");
+				break;
+			}else if(n == "" || n == null){
+				alert("No puede dejar el campo de notas vacio");
+				break;
+			}else{
+				listChamba[i][j] = nn;
+				listChamba[i][j+1] = c;
+				listChamba[i][j+2] = d;
+				listChamba[i][j+3] = f;
+				listChamba[i][j+4] = n;
+				localStorage[usuario_nombre] = JSON.stringify(listChamba);
+				alert("Se Modificó correctamente");
+				location.href = "Chambas Administration.html";
+				break;
+			}
 		}
 	};
 };
 }
 
 function editarCliente(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var listCliente =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
@@ -686,20 +744,31 @@ function editarCliente(){
 				var fn = document.getElementById("full_name").value;
 				// obtener el numero de telefono
 				var t = document.getElementById("tell").value;
-				listCliente[i][j] = n;
-				listCliente[i][j+1] = c;
-				listCliente[i][j+2] = fn;
-				listCliente[i][j+3] = t;
-				localStorage[usuario_nombre] = JSON.stringify(listCliente);
-				alert("Se Modificó correctamente");
-				location.href = "Clients Administration.html";
+				if(c == "" || c == null){
+					alert("No puede dejar el campo de cedula vacio");
+					break;
+				}else if(fn == "" || fn == null){
+					alert("No puede dejar el campo de nombre completo vacio");
+					break;
+				}else if(t == "" || t == null){
+					alert("No puede dejar el campo de telefono vacio");
+					break;
+				}else{
+					listCliente[i][j] = n;
+					listCliente[i][j+1] = c;
+					listCliente[i][j+2] = fn;
+					listCliente[i][j+3] = t;
+					localStorage[usuario_nombre] = JSON.stringify(listCliente);
+					alert("Se Modificó correctamente");
+					location.href = "Clients Administration.html";
+				}
 			}
 		};
 	};
 }
 
 function editarInvoice(){
-	debugger;
+	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
 	var listInvoice =JSON.parse(localStorage.getItem(usuario_nombre));
 	modificar = JSON.parse(localStorage.getItem("id"));
@@ -716,21 +785,35 @@ function editarInvoice(){
 			var f = document.getElementById("fecha").value;
 			// obtener las monto
 			var m = document.getElementById("monto").value;
-			listInvoice[i][j] = n;
-			listInvoice[i][j+1] = c;
-			listInvoice[i][j+2] = d;
-			listInvoice[i][j+3] = f;
-			listInvoice[i][j+4] = m;
-			localStorage[usuario_nombre] = JSON.stringify(listInvoice);
-			alert("Se Modificó correctamente");
-			location.href = "Invoices Administration.html";
+			if(c == "" || c == null){
+				alert("No puede dejar el campo de cliente vacio");
+				break;
+			}else if(d == "" || d == null){
+				alert("No puede dejar el campo de descripcion vacio");
+				break;
+			}else if(f == "" || f == null){
+				alert("No puede dejar el campo de fecha vacio");
+				break;
+			}else if(m == "" || m == null){
+				alert("No puede dejar el campo de monto vacio");
+				break;
+			}else{
+				listInvoice[i][j] = n;
+				listInvoice[i][j+1] = c;
+				listInvoice[i][j+2] = d;
+				listInvoice[i][j+3] = f;
+				listInvoice[i][j+4] = m;
+				localStorage[usuario_nombre] = JSON.stringify(listInvoice);
+				alert("Se Modificó correctamente");
+				location.href = "Invoices Administration.html";
+			}
 		}
 	};
 };
 }
 
 function editarUsers(){
-	debugger;
+	//debugger;
 	var listChamba = JSON.parse(localStorage.getItem("usuarios"));
 	modificar = JSON.parse(localStorage.getItem("id"));
 	for (var i = 0; i < listChamba.length; i++) {
@@ -746,20 +829,32 @@ function editarUsers(){
 			var p = document.getElementById("password").value;
 			// obtener las notas
 			var pr = document.getElementById("password_repeat").value;
-			listChamba[i][j] = n;
-			listChamba[i][j+1] = fn;
-			listChamba[i][j+2] = u;
-			listChamba[i][j+3] = p;
-			listChamba[i][j+4] = pr;
-			localStorage['usuarios'] = JSON.stringify(listChamba);
-			alert("Se Modificó correctamente");
-			location.href = "ver_usuarios.html";
+			if(fn == "" || fn == null){
+				alert("No puede dejar el campo de nombre completo vacio");
+				break;
+			}else if(u == "" || u == null){
+				alert("No puede dejar el campo de nombre de usuario vacio");
+				break;
+			}else{
+				if(p == pr){
+					listChamba[i][j] = n;
+					listChamba[i][j+1] = fn;
+					listChamba[i][j+2] = u;
+					listChamba[i][j+3] = p;
+					listChamba[i][j+4] = pr;
+					localStorage['usuarios'] = JSON.stringify(listChamba);
+					alert("Se Modificó correctamente");
+					location.href = "ver_usuarios.html";
+				}else{
+					alert("No puede modificar el usuario porque las contraseñas son diferentes");
+				}
+			}
 		}
 	};
 };
 }
 function elim(elemento){
-	debugger;
+	//debugger;
 	var id = elemento.id;
 	eliminar = parseInt(id);
 	localStorage.setItem("id",eliminar);
@@ -767,7 +862,7 @@ function elim(elemento){
 
 function EliminarInvoiceIndicado()
 {
-	debugger;
+	//debugger;
 	var acumulador = localStorage.getItem("Usuario_Actual") + "invoices";
 	var invoices = JSON.parse(localStorage.getItem(acumulador));
 	for (i=0; i< invoices.length; i++){
@@ -784,7 +879,7 @@ function EliminarInvoiceIndicado()
 
 function EliminarChambaIndicada()
 {
-	debugger;
+	//debugger;
 	var acumulador = localStorage.getItem("Usuario_Actual") + "chambas";
 	var chambas=JSON.parse(localStorage.getItem(acumulador));
 	for (i=0; i< chambas.length; i++){
@@ -801,7 +896,7 @@ function EliminarChambaIndicada()
 
 function EliminarClientIndicado()
 {
-	debugger;
+	//debugger;
 	var acumulador = localStorage.getItem("Usuario_Actual") + "clientes";
 	var clientes=JSON.parse(localStorage.getItem(acumulador));
 	for (i=0; i< clientes.length; i++){
@@ -818,7 +913,7 @@ function EliminarClientIndicado()
 
 function EliminarUsuarioIndicado()
 {
-	debugger;
+	//debugger;
 	var chambas = JSON.parse(localStorage.getItem("usuarios"));
 	for (i=0; i< chambas.length; i++){
 		for (j=0; j< chambas[i].length; j++){
@@ -833,7 +928,7 @@ function EliminarUsuarioIndicado()
 }
 
 function cargarListaClientesChambas(){
-	debugger;
+	//debugger;
 	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var lista =JSON.parse(localStorage.getItem(listcliente));
 
@@ -855,7 +950,7 @@ function cargarListaClientesChambas(){
 }
 
 function cargarListaClientesInvoices(){
-	debugger;
+	//debugger;
 	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var lista =JSON.parse(localStorage.getItem(listcliente));
 
