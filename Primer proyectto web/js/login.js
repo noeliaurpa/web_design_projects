@@ -1,94 +1,148 @@
-/*
-tengo que crear otra ventana para que el usuario crea su propia cuenta, y tiene que entrar  como admin siempre
-tengo que validar solo si es admin y si tiene la contraseña que es y entra si no no puede entrar
-*/
+// variable para guardar el id de las imagenes para modificar
 var modificar = 0;
+// variable para guardar el id de las imagenes para eliminar
 var eliminar = 0;
+// variable que guarda cada uno de los arreglos
 var usuario = [];
+// variable que guarda todos los arreglos
 var User = JSON.parse(localStorage.getItem("usuarios"));
+// variable que guarda cual es el usuario actual
 var user_actual;
-//var User = usuario;
+// variable para validar
 var validar = null;
+// variable para guardar los datos que se van a modificar
 var da1;
+// variable para guardar los datos que se van a modificar
 var da2;
+// variable para guardar los datos que se van a modificar
 var da3;
+// variable para guardar los datos que se van a modificar
 var da4;
+// variable para guardar los datos que se van a modificar
 var da5;
+// variable para guardar los datos que se van a modificar
 var da6;
-// Esta funcion guarda todo el contenido de los input(nombre, apellido y telefono) en el navegador
-function iniciar_Sesion()
 
+// Esta funcion valida cada usuario que se desea logear
+function iniciar_Sesion()
 {
+	// obtiene el nombre del usuario
 	var nombre_usuario = document.getElementById("user").value;
+	// obtiene la contraseña del usuario
 	var contrasenna = document.getElementById("password").value;
+	// pregunta si el nombre es admin y la contraseña es $uperadmin para saber si es el administrador
 	if(nombre_usuario === "admin" && contrasenna === "$uper4dmin"){
+		// si es asi validar va a decir que el que va a iniciar sesion es el administrador
 		validar = "Entra como administracion";
+		// entonces el usuario actual va a ser admin
 		user_actual = 'Admin';
+		// se va al localstorage y guarda el usuario actual para saber quien fue el que entró
 		localStorage.setItem("Usuario_Actual",user_actual);
+		// si no fuera así
 	}else{
+		// se va a la funcion donde valida si el usuario existe o no y si existe cual es
 		validacion();
 	}
-
+	// si validar fuera igual a nulo
 	if(validar === null){
-
+		// se muestra un mensaje donde le indica que lo debe crear primero entonces no puede iniciar sesion
 		alert("Debe crearlo primero antes de iniciar sesion");
+		// si validar fuera que entra coo administrador
 	}else if(validar === "Entra como administracion"){
+		// entonces entra como administrador
 		location.href="tablero-de-instrucciones.html";
+		// muestra un mensaje de bienvenida
 		alert("BIENVENIDO");
-
+		// si validar fuera que entra como particular
 	}else if(validar === "Entra como particular"){
+		// entonces se valida el nombre de usuario para saber quien es.
 		user_actual = document.getElementById("user").value;
+		//lo guarda en el localstorage
 		localStorage.setItem("Usuario_Actual", user_actual);
+		// entra como particular
 		location.href="tablero-de-instrucciones.html";
+		// muestra un mensaje de bienvenida
 		alert("BIENVENIDO");
 	}
 
 }
 
-// Esta funcion muestra todo el contenido de los input(nombre, apellido y telefono) en la consola
+// funcion que crea un usuario
 function crear_usuario()
 {
+	// se va al metodo de validacion
 	validacion();
 	//debugger;
+	// si validar es igual a nulo
 	if(validar === null){
+		// se va a crear un nuevo usuario
 		usuario = [];
+		// se obtiene la contraseña
 		var contrasenna = document.getElementById("password").value;
+		// se optiene la repeticion de la contraseña
 		var contrasenna_repeat = document.getElementById("password_repeat").value;
+		// si la contraseña es vacia o nula
 		if(contrasenna == "" || contrasenna == null){
+			// muestra un mensaje de error
 			alert("No puede dejar el campo de contraseña vacio");
+			// si la repeticion de la contraseña es vacio o nula
 		}else if(contrasenna_repeat == "" || contrasenna_repeat == null){
+			// muestra un mensaje de error
 			alert("No puede dejar el campo de repetir contraseña vacio");
 		}else{
+			// si la contraseña es igual a la repeticion de la contraseña
 			if(contrasenna === contrasenna_repeat){
+				// obtiene el nombre de usuario
 				var nombreU = document.getElementById("user").value;
+				// obtiene el nombre completo
 				var nombreFull = document.getElementById("fullName").value;
+				// pregunta que si el nombre de usuario es vacio o nulo
 				if(nombreU == "" || nombreU == null){
+					// si es asi muestra un mensaje de error
 					alert("No puede dejar el campo de nombre de usuario vacio");
+					// pregunta que si el nombre completo es vacio o nulo
 				}else if(nombreFull == "" || nombreFull == null){
+					// muestra un mensaje de error
 					alert("No puede dejar el campo de nombre completo vacio");
+					// si no fuera asi
 				}else{
+
+					// crea el usuario
 					usuario.push(document.getElementById("numero").value, document.getElementById("fullName").value, document.getElementById("user").value,
 						document.getElementById("password").value, document.getElementById("password_repeat").value);
+					// lo agrega al arreglo de usuarios
 					User.push(usuario);
+					// agrega el arreglo de arreglos al localstorage con el usuario nuevo
 					localStorage['usuarios'] = JSON.stringify(User);
+					// muestra un mensaje que ya puede iniciar sesion
 					alert("Usuario creado ya puedes iniciar sesion");
+					// se va a la pagina principal
 					location.href="tablero-de-instrucciones.html"
 				}
+				// si no fuera asi
 			}else{
+				// muestra un mensaje de error donde muestra que las contraseñas son diferentes
 				alert("No puedes crear el usuario porque las contraseñas son diferentes, asegurese que sea las mismas");
 			}
-		//usuario.push(jQuery('#user').val()); esto es utilizando jQuery, solo puede servir si tiene la librería
+		}
+		// si no es asi pregunta que si es administrador
+	}else if(validar === "Entra como administracion"){
+		// si es asi no lo puede crear porque ya exite
+		alert("No puedes crear con ese nombre de usuario porque ya existe");
+		// si no es asi pregunta que si es particular
+	}else if(validar === "Entra como particular"){
+		// si es asi no lo puede crear porque ya exite
+		alert("No puedes crear con ese nombre de usuario porque ya existe");
+		// si no es asi pregunta si no se pudo crear
+	}else if(validar === "No_se_pudo_crear"){
+		// si es asi no lo puede crear
+		alert("No se pudo crear el usuario");
+		// se le asigna a validar el valor de nulo
+		validar = null;
 	}
-}else if(validar === "Entra como administracion"){
-	alert("No puedes crear con ese nombre de usuario porque ya existe");
-}else if(validar === "Entra como particular"){
-	alert("No puedes crear con ese nombre de usuario porque ya existe");
-}else if(validar === "No_se_pudo_crear"){
-	alert("No se pudo crear el usuario");
-	validar = null;
-}
 } 
 
+// funcion que valida el login
 function validacion()
 {
 	//debugger;
@@ -129,30 +183,20 @@ function validacion()
 	}
 }
 
-
-
-/* esto es para recorrer el arreglo
-for(i = 0; i < storedNames.length; i++){
-	for (j = 0; j < storedNames[i].length; j++){
-   		if(storedNames[i][j] === nombre_usuario){
-			if(storedNames[i][j+1] === contrasenna){
-			validar = "Entra como particular";
-			break;
-		}
-	}
-}
-*/
-
+// funcion obtiene el usuario actual y lo envia a la funcion asignarNombre
 function usuario(){
 	var nombreDelUsuario = document.getElementById("user");
 	asignarNombre(nombreDelUsuario);
 }
+
+//coloca en el hi user el nombre del usuario actual
 function asignarNombre(nombreUsuario){
 	var nombreU = nombreUsuario;
 	var elemento = document.getElementById("Hi_user");
 	elemento.innerHTML = nombreU;
 }
 
+//valida si el usuario es administrador o particular
 function validarNewUser(){
 	//debugger;
 	if(localStorage.getItem("Usuario_Actual") === "Admin"){
@@ -164,10 +208,9 @@ function validarNewUser(){
 	}
 }
 
-
-
+// variable donde digo que las chambas es un arreglo vacio
 var chambas = [];
-
+// funcion que agrega las chambas
 function agregarChambas(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
 	var arreglo = JSON.parse(localStorage.getItem(usuario_nombre));
@@ -210,6 +253,7 @@ function agregarChambas(){
 	}
 }
 
+// funcion donde cargo las chambas a la tabla de chambas
 function cargarTablaChambas(){
 	//debugger
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
@@ -266,13 +310,12 @@ function cargarTablaChambas(){
     	dilete.appendChild(link2,x2);
     	break;
     };
-
 };
 }
 
-
+//variable donde digo que los clientes es un arreglo vacio
 var clientes = [];
-
+// funcion que agrega los clientes
 function agregarClientes(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var arreglo = JSON.parse(localStorage.getItem(usuario_nombre));
@@ -312,6 +355,7 @@ function agregarClientes(){
 	}
 }
 
+// funcion donde cargo los clientes a la tabla de clientes
 function cargarTablaClientes(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
@@ -368,8 +412,9 @@ function cargarTablaClientes(){
 };
 }
 
-
+//variable donde digo que los invoices es un arreglo vacio
 var invoices = [];
+// funcion que agrega los invoices
 function agregarInvoices(){
 	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
@@ -412,6 +457,7 @@ function agregarInvoices(){
 	}
 }
 
+// funcion donde cargo los invoices a la tabla de invoices
 function cargarTablaInvoices(){
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
 	var listcliente =JSON.parse(localStorage.getItem(usuario_nombre));
@@ -471,6 +517,7 @@ function cargarTablaInvoices(){
 };
 }
 
+// funcion que carga los usuarios en la tabla de usuarios
 function cargarTablaUsers(){
 	var idEdit;
 	var idDelete;
@@ -529,6 +576,7 @@ function cargarTablaUsers(){
 };
 }
 
+// funcion que carga el id de los invoices
 function cargarNumeroI(){
 	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
@@ -543,6 +591,7 @@ function cargarNumeroI(){
 	
 }
 
+// funcion que carga el id de las chambas
 function cargarNumeroCH(){
 	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
@@ -557,6 +606,7 @@ function cargarNumeroCH(){
 	
 }
 
+// funcion que carga el id de los clientes
 function cargarNumeroCL(){
 	//debugger;
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
@@ -571,7 +621,7 @@ function cargarNumeroCL(){
 	
 }
 
-
+// funcion que carga el id de los usuarios
 function cargarNumeroUS(){
 	//debugger;
 	var listUser =JSON.parse(localStorage.getItem("usuarios"));
@@ -584,29 +634,51 @@ function cargarNumeroUS(){
 	}
 	
 }
+
+// funcion donde obtengo el id para asignarselo a la imagen modificar
 function modif(elemento){
+	// obtengo el id actual
 	var id = elemento.id;
+	// le digo que la variable modificar es idual a ese id
 	modificar = parseInt(id);
+	// le coloco el dato del id al localstorage
 	localStorage.setItem("id",modificar);
 }
 
+// funcion que carga los datos en cada uno de los input 
 function cargarEditCha(){
 	//debugger;
+	// le asigno a la variable el nombre donde se guardan las chambas
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
+	// parseo la variable para obtener los arreglos
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	// le asigno a la variable modificar el id que esta actualmente
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listChamba.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listChamba[i].length; j++) {
+			// pregunto que si modificar es igual al id actual
 			if(modificar == listChamba[i][j]){
+				// si es asi, a la variable da1 le asigno el valor de la posicion 0
 				da1 =  listChamba[i][j];
+				//a la variable da2 le asigno el valor de la posicion 1
 				da2 = listChamba[i][j+1];
+				//a la variable da3 le asigno el valor de la posicion 2
 				da3 = listChamba[i][j+2];
+				//a la variable da4 le asigno el valor de la posicion 3
 				da4 = listChamba[i][j+3];
+				//a la variable da5 le asigno el valor de la posicion 4
 				da5 = listChamba[i][j+4];
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("numero").value =  da1;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("cliente").value = da2;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("description").value = da3;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("fecha").value = da4;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("notas").value = da5;
 				
 			}
@@ -615,20 +687,35 @@ function cargarEditCha(){
 	
 }
 
+// funcion que carga los datos en cada uno de los input 
 function cargarEditClie(){
+	// le asigno a la variable el nombre donde se guardan los clientes
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	// parseo la variable para obtener los arreglos
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	// le asigno a la variable modificar el id que esta actualmente
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listChamba.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listChamba[i].length; j++) {
+			// pregunto que si modificar es igual al id actual
 			if(modificar == listChamba[i][j]){
+				// si es asi, a la variable da1 le asigno el valor de la posicion 0
 				da1 =  listChamba[i][j];
+				//a la variable da2 le asigno el valor de la posicion 1
 				da2 = listChamba[i][j+1];
+				//a la variable da3 le asigno el valor de la posicion 2
 				da3 = listChamba[i][j+2];
+				//a la variable da4 le asigno el valor de la posicion 3
 				da4 = listChamba[i][j+3];
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("numero").value =  da1;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("id").value = da2;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("full_name").value = da3;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("tell").value = da4;
 			}
 		};
@@ -636,22 +723,39 @@ function cargarEditClie(){
 	
 }
 
+// funcion que carga los datos en cada uno de los input 
 function cargarEditInv(){
+	// le asigno a la variable el nombre donde se guardan los invoices
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
+	// parseo la variable para obtener los arreglos
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	// le asigno a la variable modificar el id que esta actualmente
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listChamba.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listChamba[i].length; j++) {
+			// pregunto que si modificar es igual al id actual
 			if(modificar == listChamba[i][j]){
+				// si es asi, a la variable da1 le asigno el valor de la posicion 0
 				da1 =  listChamba[i][j];
+				//a la variable da2 le asigno el valor de la posicion 1
 				da2 = listChamba[i][j+1];
+				//a la variable da3 le asigno el valor de la posicion 2
 				da3 = listChamba[i][j+2];
+				//a la variable da4 le asigno el valor de la posicion 3
 				da4 = listChamba[i][j+3];
+				//a la variable da5 le asigno el valor de la posicion 4
 				da5 = listChamba[i][j+4];
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("numero").value =  da1;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("cliente").value = da2;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("description").value = da3;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("fecha").value = da4;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("monto").value = da5;
 			}
 		};
@@ -659,22 +763,38 @@ function cargarEditInv(){
 	
 }
 
+// funcion que carga los datos en cada uno de los input 
 function cargarEditUsr(){
 	//debugger;
+	// parseo los usuarios para obtener los arreglos
 	var usuario_nombre = JSON.parse(localStorage.getItem("usuarios"));
+	// le asigno a la variable modificar el id que esta actualmente
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < usuario_nombre.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < usuario_nombre[i].length; j++) {
+			// pregunto que si modificar es igual al id actual
 			if(modificar == usuario_nombre[i][j]){
+				// si es asi, a la variable da1 le asigno el valor de la posicion 0
 				da1 =  usuario_nombre[i][j];
+				//a la variable da2 le asigno el valor de la posicion 1
 				da2 = usuario_nombre[i][j+1];
+				//a la variable da3 le asigno el valor de la posicion 2
 				da3 = usuario_nombre[i][j+2];
+				//a la variable da4 le asigno el valor de la posicion 3
 				da4 = usuario_nombre[i][j+3];
+				//a la variable da5 le asigno el valor de la posicion 4
 				da5 = usuario_nombre[i][j+4];
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("numero").value =  da1;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("fullName").value = da2;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("user").value = da3;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("password").value = da4;
+				// luego obtengo el input respectivo y le asigno el valor correspondiente
 				document.getElementById("password_repeat").value = da5;
 			}
 		};
@@ -682,13 +802,20 @@ function cargarEditUsr(){
 	}
 }
 
+// funcion que edita las chambas
 function editarChamba(){
 	//debugger;
+	// le asigno a una variable el nombre con el que estan guardados las chambas
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "chambas";
+	// parsea el nombre que se obtuvo para obtener los arreglos 
 	var listChamba =JSON.parse(localStorage.getItem(usuario_nombre));
+	// busca el id que esta actualmente y se lo asigna a la variable modificar
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listChamba.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listChamba[i].length; j++) {
+			// pregunto que si modificar es igual al id actual
 			if(modificar == listChamba[i][j]){
 				//obtener id
 				var nn = document.getElementById("numero").value;
@@ -700,26 +827,43 @@ function editarChamba(){
 			var f = document.getElementById("fecha").value;
 			// obtener las notas
 			var n = document.getElementById("notas").value;
+			// pregunto que si el cliente es vacio o nulo
 			if(c == "" || c == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de cliente vacio");
 				break;
+				// si no pregunto que si la descripcion es vacia o nula
 			}else if(d == "" || d == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de descripcion vacio");
 				break;
+				// si no pregunto que si la fecha es vacia o nula
 			}else if(f == "" || f == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de fecha vacio");
 				break;
+				// si no pregunto que si las notas son vacias o nulas
 			}else if(n == "" || n == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de notas vacio");
 				break;
+				// si no es asi
 			}else{
+				// le digo que el elemento actual en la posicion 0 es igual a el id
 				listChamba[i][j] = nn;
+				// la posicion 1 es igual al cliente
 				listChamba[i][j+1] = c;
+				// la posicion 2 es igual a la descripcion
 				listChamba[i][j+2] = d;
+				// la posicion 3 es igual a la fecha
 				listChamba[i][j+3] = f;
+				// la posicion 4 es igual a las notas
 				listChamba[i][j+4] = n;
+				// le vuelvo a insertar los arreglos con el actual modificado
 				localStorage[usuario_nombre] = JSON.stringify(listChamba);
+				// muestro un mensaje para que el usuario sepa que fue modificado
 				alert("Se Modificó correctamente");
+				// me voy a la tabla para corroborar que se modificó
 				location.href = "Chambas Administration.html";
 				break;
 			}
@@ -728,13 +872,20 @@ function editarChamba(){
 };
 }
 
+// funcion que edita los clientes
 function editarCliente(){
 	//debugger;
+	// le asigno a una variable el nombre con el que estan guardados los clientes
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	// parsea el nombre que se obtuvo para obtener los arreglos 
 	var listCliente =JSON.parse(localStorage.getItem(usuario_nombre));
+	// busca el id que esta actualmente y se lo asigna a la variable modificar
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listCliente.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listCliente[i].length; j++) {
+			// pregunto que si modificar es isual al id actual
 			if(modificar == listCliente[i][j]){
 				//obtener id
 				var n = document.getElementById("numero").value;
@@ -744,22 +895,36 @@ function editarCliente(){
 				var fn = document.getElementById("full_name").value;
 				// obtener el numero de telefono
 				var t = document.getElementById("tell").value;
+				// pregunto que si la cedula es vacia o nula
 				if(c == "" || c == null){
+					// si es asi muestro un mensaje de error
 					alert("No puede dejar el campo de cedula vacio");
 					break;
+					// si no pregunto que si el nombre completo es vacio o nulo
 				}else if(fn == "" || fn == null){
+					// si es asi muestro un mensaje de error
 					alert("No puede dejar el campo de nombre completo vacio");
 					break;
+					// si no pregunto que si el numero de telefono es vacio o nulo
 				}else if(t == "" || t == null){
+					// si es asi muestro un mensaje de error
 					alert("No puede dejar el campo de telefono vacio");
 					break;
+					// si no es asi
 				}else{
+					// le digo que el elemento actual en la posicion 0 es igual a el id
 					listCliente[i][j] = n;
+					// la posicion 1 es igual a la cedula
 					listCliente[i][j+1] = c;
+					// la posicion 2 es igual al nombre completo
 					listCliente[i][j+2] = fn;
+					// la posicion 3 es igual a el numero de telefono
 					listCliente[i][j+3] = t;
+					// le vuelvo a insertar los arreglos con el actual modificado
 					localStorage[usuario_nombre] = JSON.stringify(listCliente);
+					// muestro un mensaje para que el usuario sepa que fue modificado
 					alert("Se Modificó correctamente");
+					// me voy a la tabla para corroborar que se modificó
 					location.href = "Clients Administration.html";
 				}
 			}
@@ -767,15 +932,22 @@ function editarCliente(){
 	};
 }
 
+// funcion que edita los invoices
 function editarInvoice(){
 	//debugger;
+	// le asigno a una variable el nombre con el que estan guardados los invoices
 	var usuario_nombre = (localStorage.getItem("Usuario_Actual")) + "invoices";
+	// parsea el nombre que se obtuvo para obtener los arreglos 
 	var listInvoice =JSON.parse(localStorage.getItem(usuario_nombre));
+	// busca el id que esta actualmente y se lo asigna a la variable modificar
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos
 	for (var i = 0; i < listInvoice.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listInvoice[i].length; j++) {
+			// pregunto que si modificar es isual al id actual
 			if(modificar == listInvoice[i][j]){
-				//obtener id
+				//si es asi obtener id
 				var n = document.getElementById("numero").value;
 			// obtener el cliente
 			var c = document.getElementById("cliente").value;
@@ -785,26 +957,43 @@ function editarInvoice(){
 			var f = document.getElementById("fecha").value;
 			// obtener las monto
 			var m = document.getElementById("monto").value;
+			// pregunto que si el cliente es vacio o nulo
 			if(c == "" || c == null){
+				// si es asi muetro un mensaje de error
 				alert("No puede dejar el campo de cliente vacio");
 				break;
+				// si no, pregunto que si la descripcion es vacia o nula
 			}else if(d == "" || d == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de descripcion vacio");
 				break;
+				// si no pregunto que si la fecha es vacia o nula
 			}else if(f == "" || f == null){
+				// si es asi se muestra un mensaje de error
 				alert("No puede dejar el campo de fecha vacio");
 				break;
+				// si no, pregunto que si es monto es vacio o nulo
 			}else if(m == "" || m == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de monto vacio");
 				break;
+				// si no es asi
 			}else{
+				// le digo que el elemento actual en la posicion 0 es igual a el id
 				listInvoice[i][j] = n;
+				// la posicion 1 es igual a el cliente
 				listInvoice[i][j+1] = c;
+				// la posicion 2 es igual a la descripcion
 				listInvoice[i][j+2] = d;
+				// la posicion 3 es igual a la fecha
 				listInvoice[i][j+3] = f;
+				// la posicion 4 es igual al monto
 				listInvoice[i][j+4] = m;
+				// le vuelvo a insertar los arreglos con el actual modificado
 				localStorage[usuario_nombre] = JSON.stringify(listInvoice);
+				// muestro un mensaje para que el usuario sepa que fue modificado
 				alert("Se Modificó correctamente");
+				// me voy a la tabla para corroborar que se modificó
 				location.href = "Invoices Administration.html";
 			}
 		}
@@ -812,40 +1001,62 @@ function editarInvoice(){
 };
 }
 
+// funcion que edita los usuarios
 function editarUsers(){
 	//debugger;
+	// variable que obtengo el arreglo donde estan guardados los usuarios
 	var listChamba = JSON.parse(localStorage.getItem("usuarios"));
+	// obtengo el id para poder modificar el elemento actual
 	modificar = JSON.parse(localStorage.getItem("id"));
+	// recorro el arreglo de arreglos de los usuarios
 	for (var i = 0; i < listChamba.length; i++) {
+		// recorro cada uno de los arreglos
 		for (var j = 0; j < listChamba[i].length; j++) {
+			// pregunto que si el modificar es igual al id actual
 			if(modificar == listChamba[i][j]){
-				//obtener id
+				// si si es igual obtener id
 				var n = document.getElementById("numero").value;
-			// obtener el cliente
+			// obtener el nombre completo
 			var fn = document.getElementById("fullName").value;
-			// obtener la descripcion
+			// obtener el nombre de usuario
 			var u = document.getElementById("user").value;
-			// obtener la fecha
+			// obtener la contraseña
 			var p = document.getElementById("password").value;
-			// obtener las notas
+			// obtener la contraseña repetida
 			var pr = document.getElementById("password_repeat").value;
+			// pregunto si las contraseñas son vacias o nulas
 			if(fn == "" || fn == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de nombre completo vacio");
 				break;
+				// si no, pregunto que si el nombre de usuario es vacio o nulo
 			}else if(u == "" || u == null){
+				// si es asi muestro un mensaje de error
 				alert("No puede dejar el campo de nombre de usuario vacio");
 				break;
+				// si no 
 			}else{
+				// pregunto que si nas contraseñas son iguales
 				if(p == pr){
+					// si es asi, le digo que elemento actual en la posicion 0 es igual al id
 					listChamba[i][j] = n;
+					// la posicion 1 es igual al nombre completo
 					listChamba[i][j+1] = fn;
+					// la posicion 2 es igual a el nombre de usuario
 					listChamba[i][j+2] = u;
+					// la posicion 3 es igual a la contraseña
 					listChamba[i][j+3] = p;
+					// y la posicion 4 es igual a la contraseña repetida
 					listChamba[i][j+4] = pr;
+					// agrego la modificacion al localstorage
 					localStorage['usuarios'] = JSON.stringify(listChamba);
+					// muestro el mensaje para que se de cuenta el usuario que fue modificado
 					alert("Se Modificó correctamente");
+					// me voy a la tabla para corroborar que se modificó
 					location.href = "ver_usuarios.html";
+					// si no fuera asi
 				}else{
+					// muestro el mensaje de error porque las contraseñas son diferentes
 					alert("No puede modificar el usuario porque las contraseñas son diferentes");
 				}
 			}
@@ -853,120 +1064,178 @@ function editarUsers(){
 	};
 };
 }
+
+// funcion que guarda el id actial del basurero
 function elim(elemento){
 	//debugger;
+	// tengo esta variable para que me guarde el id actual
 	var id = elemento.id;
+	// le digo a la variable global eliminar que sea igual a el id actual
 	eliminar = parseInt(id);
+	// coloca el id actual en una variable del localstorage
 	localStorage.setItem("id",eliminar);
 }
 
-function EliminarInvoiceIndicado()
-{
+// funcion que me elimina el invoice seleccionado
+function EliminarInvoiceIndicado(){
 	//debugger;
+	// este obtiene el nombre donde guardo los invoices en el localstorage ('Noeliainvoices')
 	var acumulador = localStorage.getItem("Usuario_Actual") + "invoices";
+	// este obtiene ese nombre ('Noeliainvoices')y lo parsea para poder obtener el arreglo de arreglos 
 	var invoices = JSON.parse(localStorage.getItem(acumulador));
+	// este for recorre todo el arreglo de arreglos
 	for (i=0; i< invoices.length; i++){
+		// este for recorre cada uno de esos arreglos
 		for (j=0; j< invoices[i].length; j++){
+			// esta variable es para obtener el id del elemento en el que estoy actualmente
 			eliminar = JSON.parse(localStorage.getItem("id"));
+			// pregunto que si ese id es igual al id del invoice
 			if(eliminar == invoices[i][j]){
+				// si es igual, intonces le digo que me elimine el que esta actualmente o sea i
 				invoices.splice(i, 1);
+				// luego vuelvo a guardarlo en localstorage todos loa arreglos menos el que eliminó obviamente
 				localStorage[acumulador] = JSON.stringify(invoices);
+				// muestro el mensaje para saber que se eliminó
 				alert("Se Eliminó correctamente");
 			}
 		}
 	}
 }
 
-function EliminarChambaIndicada()
-{
+//funcion que me elimina la chamba seleccionada
+function EliminarChambaIndicada(){
 	//debugger;
+	// este obtiene el nombre donde guardo las chambas en el localstorage ('Noeliachambas')
 	var acumulador = localStorage.getItem("Usuario_Actual") + "chambas";
+	// este obtiene ese nombre ('Noeliachambas')y lo parsea para poder obtener el arreglo de arreglos 
 	var chambas=JSON.parse(localStorage.getItem(acumulador));
+	// este for recorre todo el arreglo de arreglos
 	for (i=0; i< chambas.length; i++){
+		// este for recorre cada uno de esos arreglos
 		for (j=0; j< chambas[i].length; j++){
+			// esta variable es para obtener el id del elemento en el que estoy actualmente
 			eliminar = JSON.parse(localStorage.getItem("id"));
+			// pregunto que si ese id es igual al id de la chamba
 			if(eliminar == chambas[i][j]){
+				// si es igual, intonces le digo que me elimine el que esta actualmente o sea i
 				chambas.splice(i, 1);
+				// luego vuelvo a guardarlo en localstorage todos loa arreglos menos el que eliminó obviamente
 				localStorage[acumulador] = JSON.stringify(chambas);
+				// muestro el mensaje para saber que se eliminó
 				alert("Se Eliminó correctamente");
 			}
 		}
 	}
 }
 
-function EliminarClientIndicado()
-{
+// funcion que me elimina cada uno de los clientes
+function EliminarClientIndicado(){
 	//debugger;
+	// este obtiene el nombre donde guardo los clientes en el localstorage ('Noeliaclientes')
 	var acumulador = localStorage.getItem("Usuario_Actual") + "clientes";
+	// este obtiene ese nombre ('Noeliaclientes')y lo parsea para poder obtener el arreglo de arreglos 
 	var clientes=JSON.parse(localStorage.getItem(acumulador));
+	// este for recorre todo el arreglo de arreglos
 	for (i=0; i< clientes.length; i++){
+		// este for recorre cada uno de esos arreglos
 		for (j=0; j< clientes[i].length; j++){
+			// esta variable es para obtener el id del elemento en el que estoy actualmente
 			eliminar = JSON.parse(localStorage.getItem("id"));
+			// pregunto que si ese id es igual al id del cliente
 			if(eliminar == clientes[i][j]){
+				// si es igual, intonces le digo que me elimine el que esta actualmente o sea i
 				clientes.splice(i, 1);
+				// luego vuelvo a guardarlo en localstorage todos loa arreglos menos el que eliminó obviamente
 				localStorage[acumulador] = JSON.stringify(clientes);
+				// muestro el mensaje para saber que se eliminó
 				alert("Se Eliminó correctamente");
 			}
 		}
 	}
 }
 
-function EliminarUsuarioIndicado()
-{
+// funcion que elimina cada uno de los usuarios
+function EliminarUsuarioIndicado(){
 	//debugger;
+	// obtiene el arreglo a la hora de parsear los usuarios
 	var chambas = JSON.parse(localStorage.getItem("usuarios"));
+	// este for recorre el arreglo de arreglos
 	for (i=0; i< chambas.length; i++){
+		// este for recorre cada uno de los arreglos
 		for (j=0; j< chambas[i].length; j++){
+			// le asigno a la variable eliminar el id que está actualmente
 			eliminar = JSON.parse(localStorage.getItem("id"));
+			// pregunto que si el id de eliminar es igual al id actual
 			if(eliminar == chambas[i][j]){
+				// si es verdad elimina el elemento que esta actualmente
 				chambas.splice(i, 1);
+				// vuelvo a guardar todos los arreglos sin el que se eliminó obviamente
 				localStorage['usuarios'] = JSON.stringify(chambas);
+				// muestro el mensaje que me dice que se eliminó
 				alert("Se Eliminó correctamente");
 			}
 		}
 	}
 }
 
+// funcion que hace el datalist y le agrega los clientes que existen 
 function cargarListaClientesChambas(){
 	//debugger;
+	// variable que obtiene el nombre con el que estan guardados los clientes
 	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	// ese nombre lo parsea para obtener los arreglos
 	var lista =JSON.parse(localStorage.getItem(listcliente));
-
+	// crea un elemento datalist
 	var datalist = document.createElement("datalist");
+	// a ese elemento le agrego un id 
 	datalist.setAttribute("id", "chambass");
+	// recorro la lista de los cliente, donde esta el arreglo de arreglos
 	for (var i = 0; i < lista.length; i++) {
+		// recorro cada uno de los arreglos para obtener el nombre de los clientes
 		for (var j = 0; j < lista[i].length; j++) {
-  			// crea el elemento imagen
+  			// crea el elemento de opcion que tiene el datalist
   			var opcion = document.createElement("option");
+  			// a la obcion le agrego el valor del nombre del cliente que esta actualmente
   			opcion.setAttribute("value", lista[i][2]);
-    		// se lo agrega al elemento link que creo antes
+    		// se lo agrega al elemento datalist que creo antes 
+    		// aqui es como le voy agregando de uno en uno al datalist 
     		datalist.appendChild(opcion);
     		break;
     	};
     };
+    // creo una variable para que me obtenga el input que le voy a agregar el datalist
     var input = document.getElementById("cliente");
-    // agrega el elmento al body o a quién sea donde se va a agregar, podria ser un div
+    // agrega el elmento datalist con sus respectivos options a dicho input
     input.appendChild(datalist);
 }
 
+// funcion que hace el datalist y le agrega los clientes que existen 
 function cargarListaClientesInvoices(){
 	//debugger;
+	// variable que obtiene el nombre con el que estan guardados los clientes
 	var listcliente = (localStorage.getItem("Usuario_Actual")) + "clientes";
+	// ese nombre lo parsea para obtener los arreglos
 	var lista =JSON.parse(localStorage.getItem(listcliente));
-
+	// crea un elemento datalist
 	var datalist = document.createElement("datalist");
+	// a ese elemento le agrego un id 
 	datalist.setAttribute("id", "invoicess");
+	// recorro la lista de los cliente, donde esta el arreglo de arreglos
 	for (var i = 0; i < lista.length; i++) {
+		// recorro cada uno de los arreglos para obtener el nombre de los clientes
 		for (var j = 0; j < lista[i].length; j++) {
-  			// crea el elemento imagen
+  			// crea el elemento de opcion que tiene el datalist
   			var opcion = document.createElement("option");
+  			// a la obcion le agrego el valor del nombre del cliente que esta actualmente
   			opcion.setAttribute("value", lista[i][2]);
-    		// se lo agrega al elemento link que creo antes
+    		// se lo agrega al elemento datalist que creo antes 
+    		// aqui es como le voy agregando de uno en uno al datalist 
     		datalist.appendChild(opcion);
     		break;
     	};
     };
+    // creo una variable para que me obtenga el input que le voy a agregar el datalist
     var input = document.getElementById("cliente");
-    // agrega el elmento al body o a quién sea donde se va a agregar, podria ser un div
+    // agrega el elmento datalist con sus respectivos options a dicho input
     input.appendChild(datalist);
 }
